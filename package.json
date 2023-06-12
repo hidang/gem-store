@@ -1,0 +1,24 @@
+{
+    "name": "ga",
+    "version": "0.0.1-demo",
+    "description": "NM-CNPM",
+    "scripts": {
+        "preinstall": "node ./preinstall-script.js",
+        "setup": "watchman watch-del-all && rm -rf yarn.lock && rm -rf node_modules/ && cd ./client && yarn install && cd ../server && yarn install",
+        "server:dev": "yarn --cwd ./server run dev",
+        "client:dev": "yarn --cwd ./client run dev ",
+        "dev": "npx concurrently \"yarn run server:dev\" \"yarn run client:dev\"",
+        "start": "yarn run setup && yarn run dev",
+        "format": "npx prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    },
+    "keywords": [],
+    "author": "hidang <yellowstudio.vn@gmail.com>",
+    "license": "MIT",
+    "main": "index.js",
+    "dependencies": {
+        "concurrently": "^8.2.0"
+    },
+    "devDependencies": {
+        "prettier": "^2.8.8"
+    }
+}
