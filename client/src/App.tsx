@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Admin, CustomRoutes, Resource, ListGuesser, EditGuesser, ShowGuesser } from 'react-admin';
-import { dataProvider } from './data/dataProvider';
-import authProvider from './authProvider';
+import { dataProvider } from './mock/dataProvider';
+import authProvider from './mock/authProvider';
 import { Login, Layout } from './layout';
 import { lightTheme, darkTheme } from './layout/themes';
 

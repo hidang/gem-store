@@ -1,13 +1,6 @@
 import * as React from 'react';
 import { ReactElement, ReactNode } from 'react';
-import {
-    List,
-    MenuItem,
-    ListItemIcon,
-    Typography,
-    Collapse,
-    Tooltip,
-} from '@mui/material';
+import { List, MenuItem, ListItemIcon, Typography, Collapse, Tooltip } from '@mui/material';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { useTranslate, useSidebarState } from 'react-admin';
 
@@ -28,9 +21,7 @@ const SubMenu = (props: Props) => {
 
     const header = (
         <MenuItem dense={dense} onClick={handleToggle}>
-            <ListItemIcon sx={{ minWidth: 5 }}>
-                {isOpen ? <ExpandMore /> : icon}
-            </ListItemIcon>
+            <ListItemIcon sx={{ minWidth: 5 }}>{isOpen ? <ExpandMore /> : icon}</ListItemIcon>
             <Typography variant="inherit" color="textSecondary">
                 {translate(name)}
             </Typography>
@@ -53,12 +44,10 @@ const SubMenu = (props: Props) => {
                     disablePadding
                     sx={{
                         '& a': {
-                            transition:
-                                'padding-left 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms',
-                            paddingLeft: sidebarIsOpen ? 4 : 2,
-                        },
-                    }}
-                >
+                            transition: 'padding-left 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms',
+                            paddingLeft: sidebarIsOpen ? 4 : 2
+                        }
+                    }}>
                     {children}
                 </List>
             </Collapse>

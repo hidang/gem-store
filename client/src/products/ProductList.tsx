@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Chip, useMediaQuery, Theme } from '@mui/material';
 
-import { dataProvider } from '../data/dataProvider';
+import { dataProvider } from '../mock/dataProvider';
 import {
     CreateButton,
     ExportButton,
