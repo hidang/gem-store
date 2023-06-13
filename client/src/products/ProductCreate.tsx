@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Create, TabbedForm, TextInput, required } from 'react-admin';
-import { RichTextInput } from 'ra-input-rich-text';
 
 import { ProductEditDetails } from './ProductEditDetails';
 

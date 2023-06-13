@@ -39,13 +39,13 @@ const Menu = ({ dense = false }: MenuProps) => {
             <SubMenu
                 handleToggle={() => handleToggle('menuCatalog')}
                 isOpen={state.menuCatalog}
-                name="Products"
+                name="Sản Phẩm"
                 icon={<products.icon />}
                 dense={dense}>
                 <MenuItemLink
                     to="/products"
                     state={{ _scrollToTop: true }}
-                    primaryText={translate(`Products`, {
+                    primaryText={translate(`Quản lý sản phẩm`, {
                         smart_count: 2
                     })}
                     leftIcon={<products.icon />}
@@ -54,7 +54,34 @@ const Menu = ({ dense = false }: MenuProps) => {
                 <MenuItemLink
                     to="/categories"
                     state={{ _scrollToTop: true }}
-                    primaryText={translate(`Products1`, {
+                    primaryText={translate(`Quản lý nhà cung cấp`, {
+                        smart_count: 2
+                    })}
+                    leftIcon={<products.icon />}
+                    dense={dense}
+                />
+                <MenuItemLink
+                    to="/categories"
+                    state={{ _scrollToTop: true }}
+                    primaryText={translate(`Quản lý đơn mua hàng`, {
+                        smart_count: 2
+                    })}
+                    leftIcon={<products.icon />}
+                    dense={dense}
+                />
+                <MenuItemLink
+                    to="/categories"
+                    state={{ _scrollToTop: true }}
+                    primaryText={translate(`Quản lý đơn bán hàng`, {
+                        smart_count: 2
+                    })}
+                    leftIcon={<products.icon />}
+                    dense={dense}
+                />
+                <MenuItemLink
+                    to="/categories"
+                    state={{ _scrollToTop: true }}
+                    primaryText={translate(`Báo cáo tồn kho`, {
                         smart_count: 2
                     })}
                     leftIcon={<products.icon />}
@@ -62,11 +89,16 @@ const Menu = ({ dense = false }: MenuProps) => {
                 />
             </SubMenu>
 
-            <SubMenu handleToggle={() => handleToggle('menuCatalog')} isOpen={state.menuCatalog} name="qe" icon={<products.icon />} dense={dense}>
+            <SubMenu
+                handleToggle={() => handleToggle('menuCatalog')}
+                isOpen={state.menuCatalog}
+                name="Dịch vụ"
+                icon={<products.icon />}
+                dense={dense}>
                 <MenuItemLink
                     to="/products"
                     state={{ _scrollToTop: true }}
-                    primaryText={translate(`eq1`, {
+                    primaryText={translate(`Quản lý dịch vụ`, {
                         smart_count: 2
                     })}
                     leftIcon={<products.icon />}
@@ -75,7 +107,41 @@ const Menu = ({ dense = false }: MenuProps) => {
                 <MenuItemLink
                     to="/categories"
                     state={{ _scrollToTop: true }}
-                    primaryText={translate(`ew`, {
+                    primaryText={translate(`Quản lý phiếu dịch vụ`, {
+                        smart_count: 2
+                    })}
+                    leftIcon={<products.icon />}
+                    dense={dense}
+                />
+                <MenuItemLink
+                    to="/categories"
+                    state={{ _scrollToTop: true }}
+                    primaryText={translate(`Quản lý danh sách phiếu dịch vụ`, {
+                        smart_count: 2
+                    })}
+                    leftIcon={<products.icon />}
+                    dense={dense}
+                />
+            </SubMenu>
+            <SubMenu
+                handleToggle={() => handleToggle('menuCatalog')}
+                isOpen={state.menuCatalog}
+                name="Người dùng"
+                icon={<products.icon />}
+                dense={dense}>
+                <MenuItemLink
+                    to="/products"
+                    state={{ _scrollToTop: true }}
+                    primaryText={translate(`Quản lý tài khoản`, {
+                        smart_count: 2
+                    })}
+                    leftIcon={<products.icon />}
+                    dense={dense}
+                />
+                <MenuItemLink
+                    to="/categories"
+                    state={{ _scrollToTop: true }}
+                    primaryText={translate(`Quản lý khách hàng`, {
                         smart_count: 2
                     })}
                     leftIcon={<products.icon />}
