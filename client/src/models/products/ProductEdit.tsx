@@ -21,7 +21,7 @@ const ProductEdit = () => (
     <TabbedForm>
       <TabbedForm.Tab
         label="Edit product"
-        path="edit"
+        
         sx={{ maxWidth: "40em" }}
       >
         <ProductEditDetails />

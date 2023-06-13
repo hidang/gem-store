@@ -13,11 +13,11 @@ export const ProductEditDetails = () => (
     <Grid item xs={12} sm={8}>
       <TextInput source="Product name" fullWidth validate={req} />
     </Grid>
-    <Grid item xs={12} sm={4}>
+    {/* <Grid item xs={12} sm={4}>
       <ReferenceInput source="Product type" reference="categories">
         <SelectInput optionText="name" validate={req} fullWidth />
       </ReferenceInput>
-    </Grid>
+    </Grid> */}
     <Grid item xs={12} sm={4}>
       <NumberInput source="Product code" validate={req} fullWidth />
     </Grid>

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 import { useTranslate, DashboardMenuItem, MenuItemLink, MenuProps, useSidebarState } from 'react-admin';
 
-import products from '../products';
+import products from '../models/products';
 
 import SubMenu from './SubMenu';
 

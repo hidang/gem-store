@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Chip, useMediaQuery, Theme } from '@mui/material';
 
-import { dataProvider } from '../mock/dataProvider';
+import { dataProvider } from '../../mock/dataProvider';
 import {
     CreateButton,
     ExportButton,
@@ -36,13 +36,11 @@ const ProductList = () => {
             <Title defaultTitle={getResourceLabel('products', 2)} />
 
             <FilterContext.Provider value={productFilters}>
-                <ListActions isSmall={isSmall} />
-                {isSmall && (
-                    <Box m={1}>
-                        <FilterForm />
-                        {/* <Resource name="supplier" list={ListGuesser} /> */}
-                    </Box>
-                )}
+            
+                 <ListActions isSmall={isSmall} />
+                    <Box m={0.5}>
+                    <FilterForm />
+                     </Box>
             </FilterContext.Provider>
 
             <Datagrid>

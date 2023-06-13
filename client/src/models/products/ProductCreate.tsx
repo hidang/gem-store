@@ -13,7 +13,7 @@ const ProductCreate = () => (
         <TextInput autoFocus source="image" fullWidth validate={required()} />
         <TextInput source="thumbnail" fullWidth validate={required()} />
       </TabbedForm.Tab> */}
-            <TabbedForm.Tab label="resources.products.tabs.details" path="details" sx={{ maxWidth: '40em' }}>
+            <TabbedForm.Tab label="resources.products.tabs.details" sx={{ maxWidth: '40em' }}>
                 <ProductEditDetails />
             </TabbedForm.Tab>
         </TabbedForm>
