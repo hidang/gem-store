@@ -41,17 +41,17 @@
             "Price": "1236$"
         }
     ],
-    "supplier": [
+    "suppliers": [
         {
             "id": 0,
-            "Supplier Name": "ABC",
+            "Supplier name": "ABC",
             "Supplier code": 123,
             "address": "abd street",
             "Phone": "0982188282"
         },
         {
             "id": 1,
-            "Supplier Name": "ABC",
+            "Supplier name": "ABC",
             "Supplier code": 123,
             "address": "abd street",
             "Phone": "0982188282"

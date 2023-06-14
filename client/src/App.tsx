@@ -6,6 +6,7 @@ import { Login, Layout } from './layout';
 import { lightTheme, darkTheme } from './layout/themes';
 
 import products from './models/products';
+import suppliers from './models/suppliers';
 
 export const App = () => (
     <Admin
@@ -19,6 +20,7 @@ export const App = () => (
         darkTheme={darkTheme}
         defaultTheme="light">
         <Resource name="products" {...products} />
+        <Resource name="suppliers" {...suppliers} />
         
     </Admin>
 );

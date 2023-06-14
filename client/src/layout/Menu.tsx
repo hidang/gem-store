@@ -52,7 +52,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                     dense={dense}
                 />
                 <MenuItemLink
-                    to="/categories"
+                    to="/suppliers"
                     state={{ _scrollToTop: true }}
                     primaryText={translate(`Quản lý nhà cung cấp`, {
                         smart_count: 2
