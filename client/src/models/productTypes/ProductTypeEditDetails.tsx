@@ -8,10 +8,6 @@ import {
 } from "react-admin";
 import { InputAdornment, Grid } from "@mui/material";
 
-const convertStringToNumber = (value: any) => {
-  const float = parseFloat(value);
-  return isNaN(float) ? null : "0"+float;
-};
 
 export const ProductTypeEditDetails = () => (
   <Grid container columnSpacing={2}>

@@ -57,16 +57,16 @@ const RecieptList = () => {
 };
 
 export const RecieptFilters = [
-    <SearchInput  source="q" alwaysOn />,
-   
+    <SearchInput source="q" alwaysOn />,
+
 ];
 
 const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
-        
-        <CreateButton label='Thêm nhà cung cấp'/>
-        <ExportButton label='Xuất danh sách nhà cung cấp'/>
+
+        <CreateButton label='Thêm nhà cung cấp' />
+        <ExportButton label='Xuất danh sách nhà cung cấp' />
     </TopToolbar>
 );
 

@@ -167,12 +167,10 @@
             "reciept code": 23,
             "Date": "12/10/2017",
             "Supplier name": "ABC",
-            "Supplier code": 123,
-            "address": "abd street",
-            "Phone": "0982188282",
+            
             "Product":[
                 {
-                    "id": 1,
+                    "id": 0,
                     "Product name": "Vàng scj",
                     "Product type": "nhẫn",
                     "Product code": 1412334,
@@ -183,7 +181,7 @@
                     
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "Product name": "Vàng scj",
                     "Product type": "nhẫn",
                     "Product code": 14134,

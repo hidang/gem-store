@@ -6,7 +6,7 @@ import { RecieptEditDetails } from './RecieptEditDetails';
 const RecieptCreate = () => (
     <Create>
         <TabbedForm defaultValues={{ sales: 0 }}>
-                    <TabbedForm.Tab label="Thêm nhà cung cấp" sx={{ maxWidth: '40em' }}>
+            <TabbedForm.Tab label="Thêm nhà cung cấp" sx={{ maxWidth: '40em' }}>
                 <RecieptEditDetails />
             </TabbedForm.Tab>
         </TabbedForm>

@@ -27,6 +27,6 @@ export const App = () => (
         <Resource name="products" {...products} />
         <Resource name="suppliers" {...suppliers} />
         <Resource name="reciepts" {...reciepts} />
-        
+
     </Admin>
 );

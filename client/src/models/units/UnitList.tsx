@@ -64,8 +64,8 @@ const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
         
-        <CreateButton label='Thêm loại sản phẩm'/>
-        <ExportButton label='Xuất danh sách loại sản phẩm'/>
+        <CreateButton label='Thêm đơn vị tính'/>
+        <ExportButton label='Xuất danh sách đơn vị tính'/>
     </TopToolbar>
 );
 
