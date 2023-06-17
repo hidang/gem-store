@@ -10,7 +10,7 @@ import { InputAdornment, Grid } from "@mui/material";
 
 const convertStringToNumber = (value: any) => {
   const float = parseFloat(value);
-  return isNaN(float) ? null : "0"+float;
+  return isNaN(float) ? null : "0" + float;
 };
 
 export const SupplierEditDetails = () => (
@@ -18,18 +18,15 @@ export const SupplierEditDetails = () => (
     <Grid item xs={12} sm={8}>
       <TextInput label="Tên nhà cung cấp" source="Supplier name" fullWidth validate={req} />
     </Grid>
-   
-    <Grid item xs={12} sm={8}>
-      <NumberInput label="Mã nhà cung cấp" source="Supplier code" validate={req} fullWidth min={0} />
-    </Grid>
+
     <Grid item xs={12} sm={8}>
       <TextInput label="Địa chỉ nhà cung cấp" source="address" fullWidth validate={req} />
     </Grid>
     <Grid item xs={12} sm={8}>
-      
-      <TextInput label="Số điện thoại" source="Phone" type="number" parse={convertStringToNumber} validate={req} fullWidth/>
+
+      <TextInput label="Số điện thoại" source="Phone" type="number" parse={convertStringToNumber} validate={req} fullWidth />
     </Grid>
-    
+
   </Grid>
 );
 

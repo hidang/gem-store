@@ -45,11 +45,10 @@ const RecieptList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Tên nhà cung cấp" source="Reciept name" />
-                <TextField label="Mã cung cấp" source="Reciept code" />
-                <TextField label="Địa chỉ nhà cung cấp" source="address" />
-                <TextField label="Số điện thoại" source="Phone" />
-
+                <TextField label="Mã đơn mua hàng" source="reciept code" />
+                <TextField label="Ngày" source="Date" />
+                <TextField label="Tên nhà cung cấp" source="Supplier name" />
+                <TextField label="Số lượng nhập" source="Products" />
                 <EditButton label='Chỉnh sửa' />
             </Datagrid>
         </ListBase>
@@ -65,8 +64,8 @@ const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
 
-        <CreateButton label='Thêm nhà cung cấp' />
-        <ExportButton label='Xuất danh sách nhà cung cấp' />
+        <CreateButton label='Thêm đơn mua hàng' />
+        <ExportButton label='Xuất danh sách hoá đơn mua hàng'/>
     </TopToolbar>
 );
 

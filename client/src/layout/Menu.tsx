@@ -107,6 +107,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                 />
             </SubMenu>
 
+           
             <SubMenu
                 handleToggle={() => handleToggle('menuCatalog')}
                 isOpen={state.menuCatalog}
@@ -140,6 +141,23 @@ const Menu = ({ dense = false }: MenuProps) => {
                     leftIcon={<products.icon />}
                     dense={dense}
                 />
+            </SubMenu>
+            <SubMenu
+                handleToggle={() => handleToggle('menuCatalog')}
+                isOpen={state.menuCatalog}
+                name="Thông tin người dùng"
+                icon={<products.icon />}
+                dense={dense}>
+                <MenuItemLink
+                    to="/clients"
+                    state={{ _scrollToTop: true }}
+                    primaryText={translate(`Thông tin khách hàng`, {
+                        smart_count: 2
+                    })}
+                    leftIcon={<products.icon />}
+                    dense={dense}
+                />
+                
             </SubMenu>
             
         </Box>

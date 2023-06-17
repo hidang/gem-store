@@ -28,14 +28,14 @@ import {
     EditButton
 } from 'react-admin';
 
-const UnitList = () => {
+const ClientList = () => {
     const getResourceLabel = useGetResourceLabel();
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Units', 2)} />
+            <Title defaultTitle={getResourceLabel('Clients', 2)} />
 
-            <FilterContext.Provider value={UnitFilters}>
+            <FilterContext.Provider value={ClientFilters}>
 
                 <ListActions isSmall={isSmall} />
                 <Box m={0.5}>
@@ -45,8 +45,13 @@ const UnitList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã đơn vị tính" source="Unit code" />
-                <TextField label="Đơn vị tính" source="Unit" />
+                <TextField label="Mã khách hàng" source="Client code" />
+                <TextField label="Tên khách hàng" source="Name" />
+                <TextField label="Giới tính" source="Sex" />
+                <TextField label="Số điện thoại" source="Phone" />
+                <TextField label="Ngày sinh" source="Date of Birth" />
+                <TextField label="Địa chỉ" source="address" />
+                
                 
 
                 <EditButton label='Chỉnh sửa' />
@@ -55,7 +60,7 @@ const UnitList = () => {
     );
 };
 
-export const UnitFilters = [
+export const ClientFilters = [
     <SearchInput  source="q" alwaysOn />,
    
 ];
@@ -64,9 +69,9 @@ const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
         
-        <CreateButton label='Thêm đơn vị tính'/>
-        <ExportButton label='Xuất danh sách đơn vị tính'/>
+        <CreateButton label='Thêm khách hàng'/>
+        <ExportButton label='Xuất danh sách khách hàng'/>
     </TopToolbar>
 );
 
-export default UnitList;
+export default ClientList;

@@ -52,7 +52,7 @@ const ProductList = () => {
                 <TextField source="Unit" />
                 <TextField source="Quantity" />
                 <TextField source="Price" />
-                <EditButton />
+                
             </Datagrid>
         </ListBase>
     );
@@ -69,14 +69,14 @@ export const productFilters = [
         <SelectInput source="name" />
     </ReferenceInput>,
 
-    <QuickFilter label="resources.products.fields.stock_lte" source="stock_lte" defaultValue={10} />
+   
 ];
 
 const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
-        <SortButton fields={['reference', 'sales', 'stock']} />
-        <CreateButton />
+        
+       
         <ExportButton />
     </TopToolbar>
 );
