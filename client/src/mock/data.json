@@ -1,4 +1,50 @@
 {
+    "productTypes":[
+       { 
+            "id": 0,
+            "Product type": "Vàng",
+            "Product type code": 141234,
+            "Unit": "gam",
+            "profit percentage": 5
+        },
+        { 
+            "id": 1,
+            "Product type": "Nhẫn",
+            "Product type code": 1413,
+            "Unit": "cái",
+            "profit percentage": 2
+        },
+        { 
+            "id": 2,
+            "Product type": "Dây chuyền",
+            "Product type code": 12413,
+            "Unit": "cái",
+            "profit percentage": 4
+        }
+    ],
+    "units":[
+        { 
+             "id": 0,
+             "Unit": "Cái",
+             "Unit code": 141234
+            
+         },
+         { 
+            "id": 1,
+            "Unit": "Kara",
+            "Unit code": 142234
+         },
+         { 
+            "id": 2,
+            "Unit": "Lượng",
+            "Unit code": 144
+         },
+         { 
+            "id": 3,
+            "Unit": "Phân",
+            "Unit code": 1442
+         }
+     ],
     "products": [
         {
             "id": 0,
@@ -115,23 +161,41 @@
             "Quantity": 3
         }
     ],
-    "reciept": [
+    "reciepts": [
         {
             "id": 0,
             "reciept code": 23,
-            "Product name": "Vàng scj",
-            "Quantity": 1,
-            "Price": "13$",
-            "Date": "12/10/2017"
-        },
-        {
-            "id": 1,
-            "reciept code": 23,
-            "Product name": "Vàng scj",
-            "Quantity": 1,
-            "Price": "13$",
-            "Date": "12/10/2017"
-        }
+            "Date": "12/10/2017",
+            "Supplier name": "ABC",
+            "Supplier code": 123,
+            "address": "abd street",
+            "Phone": "0982188282",
+            "Product":[
+                {
+                    "id": 1,
+                    "Product name": "Vàng scj",
+                    "Product type": "nhẫn",
+                    "Product code": 1412334,
+                    "Quantity": 10,
+                    "Unit": "cái",
+                    "Price": "13$",
+                    "Total Price":"130$"   
+                    
+                },
+                {
+                    "id": 2,
+                    "Product name": "Vàng scj",
+                    "Product type": "nhẫn",
+                    "Product code": 14134,
+                    "Quantity": 10,
+                    "Unit": "cái",
+                    "Price": "13$",
+                    "Total Price":"130$"   
+                    
+                }
+                
+            ]
+        }       
     ],
     "bill_of_sale": [
         {
