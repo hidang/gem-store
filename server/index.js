@@ -30,6 +30,8 @@ app.get('/mock-api', (req, res) => {
 require('./routes/product.routes')(app);
 require('./routes/purchase_invoice.routes')(app);
 require('./routes/supplier.routes')(app);
+require('./routes/product_type.routes')(app);
+require('./routes/unit.routes')(app);
 
 app.listen(PORT, `${DOMAIN}`, () => {
   console.log(`Server listening on port ${PORT}`);

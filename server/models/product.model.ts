@@ -10,10 +10,14 @@ module.exports = (sequelize: Sequelize) => {
       allowNull: false
     },
     name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     count: {
       type: DataTypes.INTEGER
+    },
+    massPerProduct: {
+      type: DataTypes.DOUBLE
     }
   });
 

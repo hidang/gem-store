@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from 'sequelize';
 
 module.exports = (sequelize: Sequelize) => {
-  const PurchaseInvoice = sequelize.define('supplier', {
+  const ProductType = sequelize.define('product_type', {
     id: {
       primaryKey: true,
       type: DataTypes.UUID,
@@ -11,15 +11,13 @@ module.exports = (sequelize: Sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
-    address: {
-      type: DataTypes.STRING
-    },
-    phone: {
-      type: DataTypes.STRING
+    profitPercent: {
+      type: DataTypes.DOUBLE
     }
   });
 
-  return PurchaseInvoice;
+  return ProductType;
 };
