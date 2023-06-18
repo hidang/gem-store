@@ -9,7 +9,7 @@ export const dataProvider = {
   getList: async (resource: any) => {
     const url = `${apiUrl}/${resource}`;
     const { json } = await httpClient(url);
-    return json;
+    return {data:json, total:json.length};
   },
     
 

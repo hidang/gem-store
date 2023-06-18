@@ -16,26 +16,26 @@ import clients from './models/clients';
 // dataProvider.getOne('unit',{id:"b49c5caf-0a8f-4209-96e3-560d10bb10e3"}).then(data=>{
 //     console.log(data.data)
 // })
-dataProvider.getList('unit').then(data=>{
-    console.log(data)
-})
+// dataProvider.getList('unit').then(data=>{
+//     console.log(data)
+// })
 export const App = () => (
     <Admin
         title=""
         dataProvider={dataProvider}
         authProvider={authProvider}
         loginPage={Login}
-        layout={Layout}
+        // layout={Layout}
         disableTelemetry
         theme={lightTheme}
         darkTheme={darkTheme}
         defaultTheme="light">
-        <Resource name="productTypes" {...productTypes} />
+        <Resource  name="product_type" {...productTypes} />
         <Resource name="unit" {...units} />
-        <Resource name="products" {...products} />
-        <Resource name="suppliers" {...suppliers} />
-        <Resource name="reciepts" {...reciepts} />
-        <Resource name="clients" {...clients} />
+        <Resource name="product" {...products} />
+        <Resource name="supplier" {...suppliers} />
+        <Resource name="purchase_invoice" {...reciepts} />
+        <Resource name="customer" {...clients} />
 
     </Admin>
 );
