@@ -20,7 +20,8 @@ exports.create = (req, res) => {
     count: body.count,
     purchaseInvoiceId: body.purchaseInvoiceId,
     supplierId: body.supplierId,
-    productTypeId: body.productTypeId
+    productTypeId: body.productTypeId,
+    massPerProduct: body.massPerProduct ?? 1
   };
 
   console.debug('### Create Product: ', product);
@@ -39,11 +40,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Products from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-
-  console.log('@@@', condition);
-  Product.findAll({ where: condition })
+  Product.findAll()
     .then((data) => {
       res.send(data);
     })
