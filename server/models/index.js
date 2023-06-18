@@ -92,7 +92,7 @@ db.ServiceInvoices.belongsTo(Customer);
 
 // 4. sync database
 // create table if not exist
-// db.sequelize.sync();
+db.sequelize.sync();
 // db.sequelize.sync({ alter: true });
-sequelize.sync({ force: true }).then(() => console.log('Drop and re-sync db.'));
+// sequelize.sync({ force: true }).then(() => console.log('Drop and re-sync db.'));
 module.exports = db;
