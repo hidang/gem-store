@@ -45,14 +45,10 @@ const ClientList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã khách hàng" source="Client code" />
-                <TextField label="Tên khách hàng" source="Name" />
-                <TextField label="Giới tính" source="Sex" />
-                <TextField label="Số điện thoại" source="Phone" />
-                <TextField label="Ngày sinh" source="Date of Birth" />
+                <TextField label="Tên khách hàng" source="name" />
+                <TextField label="Số điện thoại" source="phone" />
+                <TextField label="Ngày sinh" source="dob" />
                 <TextField label="Địa chỉ" source="address" />
-                
-                
 
                 <EditButton label='Chỉnh sửa' />
             </Datagrid>
@@ -61,16 +57,16 @@ const ClientList = () => {
 };
 
 export const ClientFilters = [
-    <SearchInput  source="q" alwaysOn />,
-   
+    <SearchInput source="q" alwaysOn />,
+
 ];
 
 const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
-        
-        <CreateButton label='Thêm khách hàng'/>
-        <ExportButton label='Xuất danh sách khách hàng'/>
+
+        <CreateButton label='Thêm khách hàng' />
+        <ExportButton label='Xuất danh sách khách hàng' />
     </TopToolbar>
 );
 

@@ -16,7 +16,7 @@ const convertStringToNumber = (value: any) => {
 export const SupplierEditDetails = () => (
   <Grid container columnSpacing={2}>
     <Grid item xs={12} sm={8}>
-      <TextInput label="Tên nhà cung cấp" source="Supplier name" fullWidth validate={req} />
+      <TextInput label="Tên nhà cung cấp" source="name" fullWidth validate={req} />
     </Grid>
 
     <Grid item xs={12} sm={8}>
@@ -24,7 +24,7 @@ export const SupplierEditDetails = () => (
     </Grid>
     <Grid item xs={12} sm={8}>
 
-      <TextInput label="Số điện thoại" source="Phone" type="number" parse={convertStringToNumber} validate={req} fullWidth />
+      <TextInput label="Số điện thoại" source="phone" type="number" parse={convertStringToNumber} validate={req} fullWidth />
     </Grid>
 
   </Grid>

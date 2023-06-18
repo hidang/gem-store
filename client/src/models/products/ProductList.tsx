@@ -45,13 +45,11 @@ const ProductList = () => {
 
             <Datagrid>
                 <TextField source="id" />
-                <TextField source="Product name" />
-                <TextField source="Product type" />
-                <TextField source="Product code" />
-                <TextField source="Supplier code" />
-                <TextField source="Unit" />
-                <TextField source="Quantity" />
-                <TextField source="Price" />
+                <TextField source="name" />
+                <TextField source="count" />
+                <TextField source="pricePerProduct" />
+                
+                
                 
             </Datagrid>
         </ListBase>

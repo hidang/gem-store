@@ -15,7 +15,7 @@ export const dataProvider = {
 
     getOne: (resource: any, params: { id: any; }) =>
         httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
-            data: json,
+            data: json, total:json.length
         })),
 
     getMany: async (resource: any, params: { ids: any; }) => {
