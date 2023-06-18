@@ -1,45 +1,46 @@
-const db = require('../models');
-const Units = db.Units;
+const db = require('../../models');
+const ServiceTypes = db.ServiceTypes;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Unit
+// Create and Save a new ServiceType
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.name) {
+  if (!body.name || !body.price) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
     return;
   }
 
-  // Create a unit
-  const unit = {
-    name: body.name
+  // Create a ServiceType
+  const serviceType = {
+    name: body.name,
+    price: body.price
   };
 
-  console.debug('### Create unit: ', unit);
+  console.debug('### Create a ServiceType: ', serviceType);
 
-  // Save unit in the database
-  Units.create(unit)
+  // Save ServiceType in the database
+  ServiceTypes.create(serviceType)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Unit.'
+        message: err.message || 'Some error occurred while creating the ServiceType.'
       });
     });
 };
 
 exports.findAll = (req, res) => {
-  Units.findAll({ include: ['productTypes'] })
+  ServiceTypes.findAll({ include: ['services'] })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving Units.'
+        message: err.message || 'Some error occurred while retrieving ServiceTypes.'
       });
     });
 };
@@ -47,19 +48,19 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Units.findByPk(id, { include: ['productTypes'] })
+  ServiceTypes.findByPk(id, { include: ['services'] })
     .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Unit with id=${id}.`
+          message: `Cannot find ServiceType with id=${id}.`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error retrieving Unit with id=' + id
+        message: 'Error retrieving ServiceType with id=' + id
       });
     });
 };
@@ -67,23 +68,23 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Units.update(req.body, {
+  ServiceTypes.update(req.body, {
     where: { id: id }
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: 'Unit was updated successfully.'
+          message: 'ServiceType was updated successfully.'
         });
       } else {
         res.send({
-          message: `Cannot update Unit with id=${id}. Maybe Unit was not found or req.body is empty!`
+          message: `Cannot update ServiceType with id=${id}. Maybe ServiceType was not found or req.body is empty!`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error updating Unit with id=' + id
+        message: 'Error updating ServiceType with id=' + id
       });
     });
 };
@@ -91,23 +92,23 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Units.destroy({
+  ServiceTypes.destroy({
     where: { id: id }
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: 'Unit was deleted successfully!'
+          message: 'ServiceType was deleted successfully!'
         });
       } else {
         res.send({
-          message: `Cannot delete Unit with id=${id}. Maybe Unit was not found!`
+          message: `Cannot delete ServiceType with id=${id}. Maybe ServiceType was not found!`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Could not delete Unit with id=' + id
+        message: 'Could not delete ServiceType with id=' + id
       });
     });
 };

@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  const unit = require('../controllers/unit.controller.js');
+  const unit = require('../../controllers/product/unit.controller.js');
   const router = require('express').Router();
 
   // Create a new unit
