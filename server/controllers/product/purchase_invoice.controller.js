@@ -1,5 +1,6 @@
 const db = require('../../models');
 const PurchaseInvoices = db.PurchaseInvoices;
+const Products = db.Products;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Product
@@ -87,6 +88,11 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   const id = req.params.id;
+  Products.destroy({
+    where: { purchaseInvoiceId: id }
+  }).catch((err) => {
+    console.debug('Error when delete Products include PurchaseInvoices!');
+  });
 
   PurchaseInvoices.destroy({
     where: { id: id }

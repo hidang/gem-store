@@ -1,48 +1,46 @@
-const db = require('../models');
-const Customers = db.Customers;
+const db = require('../../models');
+const ServiceTypes = db.ServiceTypes;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Customer
+// Create and Save a new ServiceType
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.name || !body.phone) {
+  if (!body.name || !body.price) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
     return;
   }
 
-  // Create a Customer
-  const customer = {
+  // Create a ServiceType
+  const serviceType = {
     name: body.name,
-    dob: body.dob,
-    address: body.address,
-    phone: body.phone
+    price: body.price
   };
 
-  console.debug('### Create a Customer: ', customer);
+  console.debug('### Create a ServiceType: ', serviceType);
 
-  // Save Customer in the database
-  Customers.create(customer)
+  // Save ServiceType in the database
+  ServiceTypes.create(serviceType)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Customer.'
+        message: err.message || 'Some error occurred while creating the ServiceType.'
       });
     });
 };
 
 exports.findAll = (req, res) => {
-  Customers.findAll({ include: ['serviceInvoices'] })
+  ServiceTypes.findAll({ include: ['services'] })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving Customers.'
+        message: err.message || 'Some error occurred while retrieving ServiceTypes.'
       });
     });
 };
@@ -50,19 +48,19 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Customers.findByPk(id, { include: ['serviceInvoices'] })
+  ServiceTypes.findByPk(id, { include: ['services'] })
     .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Customer with id=${id}.`
+          message: `Cannot find ServiceType with id=${id}.`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error retrieving Customer with id=' + id
+        message: 'Error retrieving ServiceType with id=' + id
       });
     });
 };
@@ -70,23 +68,23 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Customers.update(req.body, {
+  ServiceTypes.update(req.body, {
     where: { id: id }
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: 'Customer was updated successfully.'
+          message: 'ServiceType was updated successfully.'
         });
       } else {
         res.send({
-          message: `Cannot update Customer with id=${id}. Maybe Customer was not found or req.body is empty!`
+          message: `Cannot update ServiceType with id=${id}. Maybe ServiceType was not found or req.body is empty!`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error updating Customer with id=' + id
+        message: 'Error updating ServiceType with id=' + id
       });
     });
 };
@@ -94,23 +92,23 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Customers.destroy({
+  ServiceTypes.destroy({
     where: { id: id }
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: 'Customer was deleted successfully!'
+          message: 'ServiceType was deleted successfully!'
         });
       } else {
         res.send({
-          message: `Cannot delete Customer with id=${id}. Maybe Customer was not found!`
+          message: `Cannot delete ServiceType with id=${id}. Maybe ServiceType was not found!`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Could not delete Customer with id=' + id
+        message: 'Could not delete ServiceType with id=' + id
       });
     });
 };

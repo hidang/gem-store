@@ -18,6 +18,10 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     min: dbConfig.pool.min,
     acquire: dbConfig.pool.acquire,
     idle: dbConfig.pool.idle
+  },
+  retry: {
+    match: [Sequelize.ConnectionError, Sequelize.ConnectionTimedOutError, Sequelize.TimeoutError, /Deadlock/i, 'SQLITE_BUSY'],
+    max: 3
   }
 });
 
@@ -31,7 +35,10 @@ const PurchaseInvoice = require('./product/purchase_invoice.model.ts')(sequelize
 const Supplier = require('./supplier.model.ts')(sequelize);
 const ProductType = require('./product/product_type.model.ts')(sequelize);
 const Unit = require('./product/unit.model.ts')(sequelize);
+const Service = require('./service/service.model.ts')(sequelize);
+const ServiceType = require('./service/service_type.model.ts')(sequelize);
 const Customer = require('./customer.model.ts')(sequelize);
+const ServiceInvoice = require('./service/service_invoice.model.ts')(sequelize);
 
 // 2. set table (__s)
 db.Products = Product;
@@ -39,7 +46,10 @@ db.PurchaseInvoices = PurchaseInvoice;
 db.Suppliers = Supplier;
 db.ProductTypes = ProductType;
 db.Units = Unit;
+db.Services = Service;
+db.ServiceTypes = ServiceType;
 db.Customers = Customer;
+db.ServiceInvoices = ServiceInvoice;
 
 // 3. set associate
 // - PurchaseInvoice one - many Product
@@ -63,9 +73,24 @@ db.Units.hasMany(ProductType, {
   as: 'productTypes'
 });
 db.ProductTypes.belongsTo(Unit);
-// - ServiceInvoice one - many Customers
+// ServiceType one - many Service
+db.ServiceTypes.hasMany(Service, {
+  foreignKey: 'serviceTypeId'
+});
+db.Services.belongsTo(ServiceType);
+// ServiceInvoices one - many Service
+db.ServiceInvoices.hasMany(Service, {
+  foreignKey: 'serviceInvoiceId'
+});
+db.Services.belongsTo(ServiceInvoice);
+// - Customers one - many ServiceInvoice
+db.Customers.hasMany(ServiceInvoice, {
+  foreignKey: 'customerId',
+  as: 'serviceInvoices'
+});
+db.ServiceInvoices.belongsTo(Customer);
 
-// 4.
+// 4. sync database
 // create table if not exist
 // db.sequelize.sync();
 // db.sequelize.sync({ alter: true });

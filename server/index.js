@@ -1,6 +1,9 @@
 const express = require('express');
+const morgan = require('morgan');
 const AppError = require('./utils/app_error');
 const app = express();
+
+app.use(morgan('tiny'));
 
 const ENV = 'development';
 const DOMAIN = ENV === 'development' ? 'localhost' : '';
@@ -34,6 +37,9 @@ require('./routes/supplier.routes')(app);
 require('./routes/product/product_type.routes')(app);
 require('./routes/product/unit.routes')(app);
 require('./routes/customer.routes')(app);
+require('./routes/service/service.routes')(app);
+require('./routes/service/service_type.routes')(app);
+require('./routes/service/service_invoice.routes')(app);
 
 app.listen(PORT, `${DOMAIN}`, () => {
   console.log(`Server listening on port ${PORT}`);

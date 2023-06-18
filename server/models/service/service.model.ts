@@ -11,7 +11,6 @@ module.exports = (sequelize: Sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false
     },
     // Phí thêm -> (Đơn giá được tính = [price of ServiceType] + [extraPrice])
@@ -32,8 +31,7 @@ module.exports = (sequelize: Sequelize) => {
     },
     // Tình trạng (true -> Đã giao)
     status: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.BOOLEAN
     }
   });
 
