@@ -38,8 +38,16 @@ export const RecieptEditDetails = () => (
           </ReferenceInput>
           <NumberInput label="Số lượng" source="Quantity" helperText={false} validate={req} />
 
-          <NumberInput label="Giá tiền" source="Price" helperText={false} validate={req} />
-          <NumberInput label="Thành tiền" source="Total Price" helperText={false} validate={req} />
+          <NumberInput label="Giá tiền" source="Price" helperText={false} InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">$</InputAdornment>
+            ),
+          }} validate={req} />
+          <NumberInput label="Thành tiền" source="Total Price" InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">$</InputAdornment>
+            ),
+          }} helperText={false} validate={req} />
 
         </SimpleFormIterator>
       </ArrayInput>

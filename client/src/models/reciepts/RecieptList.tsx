@@ -27,6 +27,7 @@ import {
     ReferenceField,
     EditButton
 } from 'react-admin';
+import RecieptShow from './RecieptShow';
 
 const RecieptList = () => {
     const getResourceLabel = useGetResourceLabel();
@@ -43,13 +44,14 @@ const RecieptList = () => {
                 </Box>
             </FilterContext.Provider>
 
-            <Datagrid>
+            <Datagrid rowClick="expand" expand={<RecieptShow/>}>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã đơn mua hàng" source="reciept code" />
+                <TextField label="Mã đơn mua hàng" source="Reciept code" />
                 <TextField label="Ngày" source="Date" />
-                <TextField label="Tên nhà cung cấp" source="Supplier name" />
-                <TextField label="Số lượng nhập" source="Products" />
+                <TextField label="Tên nhà cung cấp" source="supplier name" />
+                <TextField label="Số lượng nhập" source="Product.lenght" />
                 <EditButton label='Chỉnh sửa' />
+                
             </Datagrid>
         </ListBase>
     );

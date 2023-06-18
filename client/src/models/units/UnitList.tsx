@@ -25,7 +25,8 @@ import {
     Datagrid,
     TextField,
     ReferenceField,
-    EditButton
+    EditButton,
+    ShowButton
 } from 'react-admin';
 
 const UnitList = () => {
@@ -50,6 +51,7 @@ const UnitList = () => {
                 
 
                 <EditButton label='Chỉnh sửa' />
+             
             </Datagrid>
         </ListBase>
     );

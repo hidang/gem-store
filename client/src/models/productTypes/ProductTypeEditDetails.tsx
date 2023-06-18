@@ -18,18 +18,22 @@ export const ProductTypeEditDetails = () => (
     <Grid item xs={12} sm={8}>
       <TextInput label="Tên loại sản phẩm" source="Product type" fullWidth validate={req} />
     </Grid>
-   
-        <Grid item xs={12} sm={8}>
-     
+
+    <Grid item xs={12} sm={8}>
+
       <ReferenceInput source="Unit_id" reference="units">
         <SelectInput label="Đơn vị tính" optionText="Unit" validate={req} fullWidth />
       </ReferenceInput>
     </Grid>
     <Grid item xs={12} sm={8}>
-      
-      <TextInput label="Phần trăm lợi nhuận" source="profit percentage" type="number" parse={convertStringToNumber} validate={req} fullWidth/>
+
+      <NumberInput label="Phần trăm lợi nhuận" source="profit percentage" InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">%</InputAdornment>
+        ),
+      }} validate={req} fullWidth min={0} />
     </Grid>
-    
+
   </Grid>
 );
 

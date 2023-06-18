@@ -171,8 +171,9 @@
         {
             "id": 0,
             "Reciept code": 23,
-            "Date": "12/10/2017",
-            "supplier_id": "thanh",
+            "Date": "2012-02-21",
+            "supplier_id": "1",
+            "supplier name": "công ty Jequery",
             "Products": 2,
             "Product":[
                 {
