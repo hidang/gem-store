@@ -45,10 +45,10 @@ const SupplierList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã cung cấp" source="Supplier code" />
-                <TextField label="Tên nhà cung cấp" source="Supplier name" />
+               
+                <TextField label="Tên nhà cung cấp" source="name" />
                 <TextField label="Địa chỉ nhà cung cấp" source="address" />
-                <TextField label="Số điện thoại" source="Phone" />
+                <TextField label="Số điện thoại" source="phone" />
 
                 <EditButton label='Chỉnh sửa' />
             </Datagrid>

@@ -46,28 +46,28 @@ const UnitList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã đơn vị tính" source="id" />
+
                 <TextField label="Đơn vị tính" source="name" />
-                
+
 
                 <EditButton label='Chỉnh sửa' />
-             
+
             </Datagrid>
         </ListBase>
     );
 };
 
 export const UnitFilters = [
-    <SearchInput  source="q" alwaysOn />,
-   
+    <SearchInput source="q" alwaysOn />,
+
 ];
 
 const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
-        
-        <CreateButton label='Thêm đơn vị tính'/>
-        <ExportButton label='Xuất danh sách đơn vị tính'/>
+
+        <CreateButton label='Thêm đơn vị tính' />
+        <ExportButton label='Xuất danh sách đơn vị tính' />
     </TopToolbar>
 );
 

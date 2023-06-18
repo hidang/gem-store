@@ -45,10 +45,10 @@ const ProductTypeList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã loại Sản phẩm" source="Product type code" />
-                <TextField label="Loại Sản phẩm" source="Product type" />
-                <TextField label="Đơn vị tính" source="Unit" />
-                <TextField label="Phần trăm lợi nhuận" source="profit percentage" />
+                <TextField label="Loại Sản phẩm" source="name" />
+                <TextField label="Phần trăm lợi nhuận" source="profitPercent" />
+                <TextField label="Đơn vị tính" source="unit_id" />
+               
 
                 <EditButton label='Chỉnh sửa' />
             </Datagrid>
