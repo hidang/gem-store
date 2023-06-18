@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Chip, useMediaQuery, Theme } from '@mui/material';
 
-import { dataProvider } from '../../mock/dataProvider';
+
 import {
     CreateButton,
     ExportButton,
@@ -46,8 +46,8 @@ const UnitList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã đơn vị tính" source="Unit code" />
-                <TextField label="Đơn vị tính" source="Unit" />
+                <TextField label="Mã đơn vị tính" source="id" />
+                <TextField label="Đơn vị tính" source="name" />
                 
 
                 <EditButton label='Chỉnh sửa' />
