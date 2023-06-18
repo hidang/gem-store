@@ -115,7 +115,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                 icon={<products.icon />}
                 dense={dense}>
                 <MenuItemLink
-                    to="/servicesTypes"
+                    to="/serviceTypes"
                     state={{ _scrollToTop: true }}
                     primaryText={translate(`Danh sách dịch vụ`, {
                         smart_count: 2
