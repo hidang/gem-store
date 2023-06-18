@@ -17,25 +17,19 @@ const convertStringToNumber = (value: any) => {
 export const ClientEditDetails = () => (
   <Grid container columnSpacing={2}>
     <Grid item xs={12} sm={8}>
-      <TextInput label="Tên khách hàng" source="Name" fullWidth validate={req} />
+      <TextInput label="Tên khách hàng" source="name" fullWidth validate={req} />
     </Grid>
 
     <Grid item xs={12} sm={8}>
-      <TextInput label="Số điện thoại" source="Phone" validate={req} fullWidth />
+      <TextInput label="Số điện thoại" source="phone" validate={req} fullWidth />
     </Grid>
     <Grid item xs={12} sm={8}>
-      <DateInput label="Ngày sinh" source="Date of Birth" validate={req} fullWidth />
+      <DateInput label="Ngày sinh" source="dob" validate={req} fullWidth />
     </Grid>
     <Grid item xs={12} sm={8}>
       <TextInput label="Địa chỉ" source="address" validate={req} fullWidth />
     </Grid>
-    <Grid item xs={12} sm={8}>
-      <SelectInput label="Giới tính" source="Sex" validate={req} fullWidth choices={[
-        { id: 'Nam', name: 'Nam' },
-        { id: 'Nữ', name: 'Nữ' },
-        { id: 'Khác', name: 'Khác' },
-      ]} />
-    </Grid>
+    
 
 
   </Grid>

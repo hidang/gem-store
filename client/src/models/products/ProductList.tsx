@@ -44,10 +44,10 @@ const ProductList = () => {
             </FilterContext.Provider>
 
             <Datagrid>
-                <TextField source="id" />
-                <TextField source="name" />
-                <TextField source="count" />
-                <TextField source="pricePerProduct" />
+                <TextField label="Id" source="id" />
+                <TextField label="Tên sản phẩm" source="name" />
+                <TextField label="Số lượng" source="count" />
+                <TextField label="Giá tiền mỗi sản phẩm " source="pricePerProduct" />
                 
                 
                 
