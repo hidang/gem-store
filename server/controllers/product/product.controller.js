@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   const body = req.body;
 
   // Validate request
-  if (!body.name || !body.purchaseInvoiceId || !body.supplierId || !body.productTypeId || !body.pricePerProduct) {
+  if (!body.name || !body.purchaseInvoice_id || !body.supplier_id || !body.productType_id || !body.pricePerProduct) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
@@ -19,9 +19,9 @@ exports.create = (req, res) => {
     name: body.name,
     count: body.count,
     pricePerProduct: body.pricePerProduct,
-    purchaseInvoiceId: body.purchaseInvoiceId,
-    supplierId: body.supplierId,
-    productTypeId: body.productTypeId,
+    purchaseInvoice_id: body.purchaseInvoice_id,
+    supplier_id: body.supplier_id,
+    productType_id: body.productType_id,
     massPerProduct: body.massPerProduct ?? 1
   };
 

@@ -4,8 +4,8 @@ module.exports = (sequelize: Sequelize) => {
   const Customer = sequelize.define('customer', {
     id: {
       primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
       unique: true,
       allowNull: false
     },

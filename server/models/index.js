@@ -54,38 +54,38 @@ db.ServiceInvoices = ServiceInvoice;
 // 3. set associate
 // - PurchaseInvoice one - many Product
 db.PurchaseInvoices.hasMany(Product, {
-  foreignKey: 'purchaseInvoiceId'
+  foreignKey: 'purchaseInvoice_id'
 });
 db.Products.belongsTo(PurchaseInvoice);
 // - Suppliers one - many Product
 db.Suppliers.hasMany(Product, {
-  foreignKey: 'supplierId'
+  foreignKey: 'supplier_id'
 });
 db.Products.belongsTo(Supplier);
 // - ProductType one - many Product
 db.ProductTypes.hasMany(Product, {
-  foreignKey: 'productTypeId'
+  foreignKey: 'productType_id'
 });
 db.Products.belongsTo(ProductType);
 // - Unit one - many ProductType
 db.Units.hasMany(ProductType, {
-  foreignKey: 'unitId',
+  foreignKey: 'unit_id',
   as: 'productTypes'
 });
 db.ProductTypes.belongsTo(Unit);
 // ServiceType one - many Service
 db.ServiceTypes.hasMany(Service, {
-  foreignKey: 'serviceTypeId'
+  foreignKey: 'serviceType_id'
 });
 db.Services.belongsTo(ServiceType);
 // ServiceInvoices one - many Service
 db.ServiceInvoices.hasMany(Service, {
-  foreignKey: 'serviceInvoiceId'
+  foreignKey: 'serviceInvoice_id'
 });
 db.Services.belongsTo(ServiceInvoice);
 // - Customers one - many ServiceInvoice
 db.Customers.hasMany(ServiceInvoice, {
-  foreignKey: 'customerId',
+  foreignKey: 'customer_id',
   as: 'serviceInvoices'
 });
 db.ServiceInvoices.belongsTo(Customer);

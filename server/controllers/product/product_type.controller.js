@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.name || !body.profitPercent || !body.unitId) {
+  if (!body.name || !body.profitPercent || !body.unit_id) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
@@ -17,7 +17,7 @@ exports.create = (req, res) => {
   const productType = {
     name: body.name,
     profitPercent: body.profitPercent,
-    unitId: body.unitId
+    unit_id: body.unit_id
   };
 
   console.debug('### Create ProductType: ', productType);

@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.name || !body.deliveryDate || !body.serviceTypeId || !body.count || !body.serviceInvoiceId) {
+  if (!body.name || !body.deliveryDate || !body.serviceType_id || !body.count || !body.serviceInvoice_id) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
@@ -16,8 +16,8 @@ exports.create = (req, res) => {
   // Create a Service
   const service = {
     name: body.name,
-    serviceInvoiceId: body.serviceInvoiceId,
-    serviceTypeId: body.serviceTypeId,
+    serviceInvoice_id: body.serviceInvoice_id,
+    serviceType_id: body.serviceType_id,
     extraPrice: body.extraPrice ?? 0,
     prepay: body.prepay ?? 0,
     count: body.count,
