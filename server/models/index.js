@@ -56,39 +56,53 @@ db.ServiceInvoices = ServiceInvoice;
 db.PurchaseInvoices.hasMany(Product, {
   foreignKey: 'purchaseInvoice_id'
 });
-db.Products.belongsTo(PurchaseInvoice);
+db.Products.belongsTo(PurchaseInvoice, {
+  foreignKey: 'purchaseInvoice_id'
+});
 // - Suppliers one - many Product
 db.Suppliers.hasMany(Product, {
   foreignKey: 'supplier_id'
 });
-db.Products.belongsTo(Supplier);
+db.Products.belongsTo(Supplier, {
+  foreignKey: 'supplier_id'
+});
 // - ProductType one - many Product
 db.ProductTypes.hasMany(Product, {
   foreignKey: 'productType_id'
 });
-db.Products.belongsTo(ProductType);
+db.Products.belongsTo(ProductType, {
+  foreignKey: 'productType_id'
+});
 // - Unit one - many ProductType
 db.Units.hasMany(ProductType, {
   foreignKey: 'unit_id',
   as: 'productTypes'
 });
-db.ProductTypes.belongsTo(Unit);
+db.ProductTypes.belongsTo(Unit, {
+  foreignKey: 'unit_id'
+});
 // ServiceType one - many Service
 db.ServiceTypes.hasMany(Service, {
   foreignKey: 'serviceType_id'
 });
-db.Services.belongsTo(ServiceType);
+db.Services.belongsTo(ServiceType, {
+  foreignKey: 'serviceType_id'
+});
 // ServiceInvoices one - many Service
 db.ServiceInvoices.hasMany(Service, {
   foreignKey: 'serviceInvoice_id'
 });
-db.Services.belongsTo(ServiceInvoice);
+db.Services.belongsTo(ServiceInvoice, {
+  foreignKey: 'serviceInvoice_id'
+});
 // - Customers one - many ServiceInvoice
 db.Customers.hasMany(ServiceInvoice, {
   foreignKey: 'customer_id',
   as: 'serviceInvoices'
 });
-db.ServiceInvoices.belongsTo(Customer);
+db.ServiceInvoices.belongsTo(Customer, {
+  foreignKey: 'customer_id'
+});
 
 // 4. sync database
 // create table if not exist
