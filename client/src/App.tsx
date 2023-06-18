@@ -13,8 +13,11 @@ import reciepts from './models/reciepts';
 import productTypes from './models/productTypes';
 import units from './models/units';
 import clients from './models/clients';
-dataProvider.getOne('unit',{id:"5cd5dcae-b81d-46f4-af13-42a798f8e476"}).then(data=>{
-    console.log(data.data.name)
+// dataProvider.getOne('unit',{id:"b49c5caf-0a8f-4209-96e3-560d10bb10e3"}).then(data=>{
+//     console.log(data.data)
+// })
+dataProvider.getList('unit').then(data=>{
+    console.log(data)
 })
 export const App = () => (
     <Admin
@@ -36,7 +39,5 @@ export const App = () => (
 
     </Admin>
 );
-function data(value: { data: any; }): { data: any; } | PromiseLike<{ data: any; }> {
-    throw new Error('Function not implemented.');
-}
+
 

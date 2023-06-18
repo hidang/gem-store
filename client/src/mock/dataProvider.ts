@@ -6,22 +6,12 @@ const httpClient = fetchUtils.fetchJson;
 
 // TypeScript users must reference the type `DataProvider`
 export const dataProvider = {
-    getList: async (resource: any, params: { pagination: { page: any; perPage: any; }; sort: { field: any; order: any; }; filter: any; }) => {
-        const { page, perPage } = params.pagination;
-        const { field, order } = params.sort;
-        const query = {
-            sort: JSON.stringify([field, order]),
-            range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-            filter: JSON.stringify(params.filter),
-        };
-        const url = `${apiUrl}/${resource}?${stringify(query)}`;
-
-        const { headers, json } = await httpClient(url);
-    return ({
-      data: json,
-      
-    });
-    },
+  getList: async (resource: any) => {
+    const url = `${apiUrl}/${resource}`;
+    const { json } = await httpClient(url);
+    return json;
+  },
+    
 
     getOne: (resource: any, params: { id: any; }) =>
         httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
