@@ -10,6 +10,7 @@ import suppliers from './models/suppliers';
 import reciepts from './models/reciepts';
 import productTypes from './models/productTypes';
 import units from './models/units';
+import serviceTypes from './models/serviceTypes';
 
 export const App = () => (
     <Admin
@@ -27,6 +28,7 @@ export const App = () => (
         <Resource name="products" {...products} />
         <Resource name="suppliers" {...suppliers} />
         <Resource name="reciepts" {...reciepts} />
+        <Resource name="serviceTypes" {...serviceTypes} />
 
     </Admin>
 );

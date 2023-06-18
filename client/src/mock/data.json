@@ -1,4 +1,24 @@
 {
+    "serviceTypes":[
+        { 
+             "id": 0,
+             "Service type": "Đánh bóng",
+             "Service type code": 12,
+             "Unit price": "20000"
+         },
+         { 
+            "id": 1,
+            "Service type": "Gia công trang sức",
+            "Service type code": 34,
+            "Unit price": "25000"
+         },
+         { 
+            "id": 2,
+            "Service type": "Cân thử trang sức",
+            "Service type code": 56,
+            "Unit price": "30000"
+         }
+     ],
     "productTypes":[
        { 
             "id": 0,

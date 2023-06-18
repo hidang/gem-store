@@ -6,7 +6,7 @@ import { ProductTypeEditDetails } from './ProductTypeEditDetails';
 const ProductTypeCreate = () => (
     <Create>
         <TabbedForm defaultValues={{ sales: 0 }}>
-                    <TabbedForm.Tab label="Thêm loại sản phẩm" sx={{ maxWidth: '40em' }}>
+            <TabbedForm.Tab label="Thêm loại sản phẩm" sx={{ maxWidth: '40em' }}>
                 <ProductTypeEditDetails />
             </TabbedForm.Tab>
         </TabbedForm>
