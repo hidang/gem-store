@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  const purchase_invoice = require('../controllers/purchase_invoice.controller.js');
+  const purchase_invoice = require('../../controllers/product/purchase_invoice.controller.js');
   const router = require('express').Router();
 
   router.post('/', purchase_invoice.create);

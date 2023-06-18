@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../../models');
 const Product = db.Products;
 const Op = db.Sequelize.Op;
 
@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   const body = req.body;
 
   // Validate request
-  if (!body.name || !body.purchaseInvoiceId || !body.supplierId || !body.productTypeId) {
+  if (!body.name || !body.purchaseInvoiceId || !body.supplierId || !body.productTypeId || !body.pricePerProduct) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
@@ -18,6 +18,7 @@ exports.create = (req, res) => {
   const product = {
     name: body.name,
     count: body.count,
+    pricePerProduct: body.pricePerProduct,
     purchaseInvoiceId: body.purchaseInvoiceId,
     supplierId: body.supplierId,
     productTypeId: body.productTypeId,

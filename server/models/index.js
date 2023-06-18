@@ -26,11 +26,12 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // 1. init table
-const Product = require('./product.model.ts')(sequelize);
-const PurchaseInvoice = require('./purchase_invoice.model.ts')(sequelize);
+const Product = require('./product/product.model.ts')(sequelize);
+const PurchaseInvoice = require('./product/purchase_invoice.model.ts')(sequelize);
 const Supplier = require('./supplier.model.ts')(sequelize);
-const ProductType = require('./product_type.model.ts')(sequelize);
-const Unit = require('./unit.model.ts')(sequelize);
+const ProductType = require('./product/product_type.model.ts')(sequelize);
+const Unit = require('./product/unit.model.ts')(sequelize);
+const Customer = require('./customer.model.ts')(sequelize);
 
 // 2. set table (__s)
 db.Products = Product;
@@ -38,6 +39,7 @@ db.PurchaseInvoices = PurchaseInvoice;
 db.Suppliers = Supplier;
 db.ProductTypes = ProductType;
 db.Units = Unit;
+db.Customers = Customer;
 
 // 3. set associate
 // - PurchaseInvoice one - many Product
@@ -61,11 +63,11 @@ db.Units.hasMany(ProductType, {
   as: 'productTypes'
 });
 db.ProductTypes.belongsTo(Unit);
+// - ServiceInvoice one - many Customers
 
 // 4.
 // create table if not exist
-db.sequelize.sync();
-// sequelize.sync({ force: true }).then(() => {
-//   console.log('Drop and re-sync db.');
-// });
+// db.sequelize.sync();
+// db.sequelize.sync({ alter: true });
+sequelize.sync({ force: true }).then(() => console.log('Drop and re-sync db.'));
 module.exports = db;

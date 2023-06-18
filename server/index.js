@@ -1,4 +1,5 @@
 const express = require('express');
+const AppError = require('./utils/app_error');
 const app = express();
 
 const ENV = 'development';
@@ -27,12 +28,32 @@ app.get('/mock-api', (req, res) => {
 });
 
 // Products api
-require('./routes/product.routes')(app);
-require('./routes/purchase_invoice.routes')(app);
+require('./routes/product/product.routes')(app);
+require('./routes/product/purchase_invoice.routes')(app);
 require('./routes/supplier.routes')(app);
-require('./routes/product_type.routes')(app);
-require('./routes/unit.routes')(app);
+require('./routes/product/product_type.routes')(app);
+require('./routes/product/unit.routes')(app);
+require('./routes/customer.routes')(app);
 
 app.listen(PORT, `${DOMAIN}`, () => {
   console.log(`Server listening on port ${PORT}`);
+});
+
+app.all('*', (req, res, next) => {
+  const error = new AppError(`Can't find ${req.originalUrl} on this server`, 404);
+  next(error);
+});
+
+process.on('uncaughtException', (err) => {
+  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+  console.log(err.name, err.message, err);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (err) => {
+  console.log('UNHANDLED REJECTION! 💥 Shutting down...');
+  console.log(err);
+  server.close(() => {
+    process.exit(1);
+  });
 });

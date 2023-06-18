@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  const product_type = require('../controllers/product_type.controller.js');
+  const product_type = require('../../controllers/product/product_type.controller.js');
   const router = require('express').Router();
 
   // Create a new product_type

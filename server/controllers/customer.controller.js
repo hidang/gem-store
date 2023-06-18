@@ -1,45 +1,48 @@
 const db = require('../models');
-const Units = db.Units;
+const Customers = db.Customers;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Unit
+// Create and Save a new Customer
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.name) {
+  if (!req.body.name) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
     return;
   }
 
-  // Create a unit
-  const unit = {
-    name: body.name
+  // Create a Customer
+  const customer = {
+    name: body.name,
+    dob: body.dob,
+    address: body.address,
+    phone: body.phone
   };
 
-  console.debug('### Create unit: ', unit);
+  console.debug('### Create a Customer: ', customer);
 
-  // Save unit in the database
-  Units.create(unit)
+  // Save Customer in the database
+  Customers.create(customer)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Unit.'
+        message: err.message || 'Some error occurred while creating the Customer.'
       });
     });
 };
 
 exports.findAll = (req, res) => {
-  Units.findAll({ include: ['productTypes'] })
+  Customers.findAll({ include: ['serviceInvoices'] })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving Units.'
+        message: err.message || 'Some error occurred while retrieving Customers.'
       });
     });
 };
@@ -47,19 +50,19 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Units.findByPk(id, { include: ['productTypes'] })
+  Customers.findByPk(id, { include: ['serviceInvoices'] })
     .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Unit with id=${id}.`
+          message: `Cannot find Customer with id=${id}.`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error retrieving Unit with id=' + id
+        message: 'Error retrieving Customer with id=' + id
       });
     });
 };
@@ -67,23 +70,23 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Units.update(req.body, {
+  Customers.update(req.body, {
     where: { id: id }
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: 'Unit was updated successfully.'
+          message: 'Customer was updated successfully.'
         });
       } else {
         res.send({
-          message: `Cannot update Unit with id=${id}. Maybe Unit was not found or req.body is empty!`
+          message: `Cannot update Customer with id=${id}. Maybe Customer was not found or req.body is empty!`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error updating Unit with id=' + id
+        message: 'Error updating Customer with id=' + id
       });
     });
 };
@@ -91,23 +94,23 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Units.destroy({
+  Customers.destroy({
     where: { id: id }
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: 'Unit was deleted successfully!'
+          message: 'Customer was deleted successfully!'
         });
       } else {
         res.send({
-          message: `Cannot delete Unit with id=${id}. Maybe Unit was not found!`
+          message: `Cannot delete Customer with id=${id}. Maybe Customer was not found!`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Could not delete Unit with id=' + id
+        message: 'Could not delete Customer with id=' + id
       });
     });
 };

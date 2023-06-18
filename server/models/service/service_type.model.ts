@@ -1,25 +1,24 @@
 import { DataTypes, Sequelize } from 'sequelize';
 
 module.exports = (sequelize: Sequelize) => {
-  const Product = sequelize.define('product', {
+  const ServiceType = sequelize.define('service_type', {
     id: {
       primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
       unique: true,
       allowNull: false
     },
     name: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false
     },
-    count: {
-      type: DataTypes.INTEGER
-    },
-    massPerProduct: {
-      type: DataTypes.DOUBLE
+    // Đơn giá
+    price: {
+      type: DataTypes.DECIMAL
     }
   });
 
-  return Product;
+  return ServiceType;
 };
