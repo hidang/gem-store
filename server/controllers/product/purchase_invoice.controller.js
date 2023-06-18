@@ -16,7 +16,7 @@ exports.create = (req, res) => {
   // Create a Product
   const purchaseInvoice = {};
 
-  console.log('###', purchaseInvoice.purchaseInvoiceId);
+  console.log('###', purchaseInvoice.purchaseInvoice_id);
 
   // Save Product in the database
   PurchaseInvoices.create(purchaseInvoice)
@@ -89,7 +89,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
   Products.destroy({
-    where: { purchaseInvoiceId: id }
+    where: { purchaseInvoice_id: id }
   }).catch((err) => {
     console.debug('Error when delete Products include PurchaseInvoices!');
   });

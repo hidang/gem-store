@@ -8,16 +8,16 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.customerId) {
+  if (!body.customer_id) {
     res.status(400).send({
-      message: 'customerId can not be empty!'
+      message: 'customer_id can not be empty!'
     });
     return;
   }
 
   // Create a ServiceInvoice
   const serviceInvoice = {
-    customerId: body.customerId
+    customer_id: body.customer_id
   };
 
   console.debug('### Create a ServiceInvoice: ', serviceInvoice);
@@ -94,7 +94,7 @@ exports.delete = (req, res) => {
   const id = req.params.id;
 
   Services.destroy({
-    where: { serviceInvoiceId: id }
+    where: { serviceInvoice_id: id }
   }).catch((err) => {
     console.debug('Error when delete Services include ServiceInvoices!');
   });

@@ -4,7 +4,7 @@ module.exports = (sequelize: Sequelize) => {
   const ProductInStock = sequelize.define('product_in_stock', {
     id: {
       primaryKey: true,
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       unique: true,
       allowNull: false
     },
@@ -30,11 +30,11 @@ module.exports = (sequelize: Sequelize) => {
     },
 
     // extra info (nice to have)
-    purchaseInvoiceId: {
+    purchaseInvoice_id: {
       type: DataTypes.INTEGER
     },
-    supplierId: {
-      type: DataTypes.UUID
+    supplier_id: {
+      type: DataTypes.INTEGER
     }
   });
 
