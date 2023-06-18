@@ -27,16 +27,15 @@ import {
     ReferenceField,
     EditButton
 } from 'react-admin';
-import RecieptShow from './RecieptShow';
 
-const RecieptList = () => {
+const ClientList = () => {
     const getResourceLabel = useGetResourceLabel();
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Reciepts', 2)} />
+            <Title defaultTitle={getResourceLabel('Clients', 2)} />
 
-            <FilterContext.Provider value={RecieptFilters}>
+            <FilterContext.Provider value={ClientFilters}>
 
                 <ListActions isSmall={isSmall} />
                 <Box m={0.5}>
@@ -44,31 +43,35 @@ const RecieptList = () => {
                 </Box>
             </FilterContext.Provider>
 
-            <Datagrid rowClick="expand" expand={<RecieptShow/>}>
+            <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã đơn mua hàng" source="Reciept code" />
-                <TextField label="Ngày" source="Date" />
-                <TextField label="Tên nhà cung cấp" source="supplier name" />
-                <TextField label="Số lượng nhập" source="Product.lenght" />
-                <EditButton label='Chỉnh sửa' />
+                <TextField label="Mã khách hàng" source="Client code" />
+                <TextField label="Tên khách hàng" source="Name" />
+                <TextField label="Giới tính" source="Sex" />
+                <TextField label="Số điện thoại" source="Phone" />
+                <TextField label="Ngày sinh" source="Date of Birth" />
+                <TextField label="Địa chỉ" source="address" />
                 
+                
+
+                <EditButton label='Chỉnh sửa' />
             </Datagrid>
         </ListBase>
     );
 };
 
-export const RecieptFilters = [
-    <SearchInput source="q" alwaysOn />,
-
+export const ClientFilters = [
+    <SearchInput  source="q" alwaysOn />,
+   
 ];
 
 const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
-
-        <CreateButton label='Thêm đơn mua hàng' />
-        <ExportButton label='Xuất danh sách hoá đơn mua hàng'/>
+        
+        <CreateButton label='Thêm khách hàng'/>
+        <ExportButton label='Xuất danh sách khách hàng'/>
     </TopToolbar>
 );
 
-export default RecieptList;
+export default ClientList;

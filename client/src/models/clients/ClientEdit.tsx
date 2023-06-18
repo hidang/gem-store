@@ -14,17 +14,17 @@ import {
   useRecordContext,
 } from "react-admin";
 
-import { RecieptEditDetails } from "./RecieptEditDetails";
+import { ClientEditDetails } from "./ClientEditDetails";
 
-const RecieptEdit = () => (
+const ClientEdit = () => (
   <Edit>
     <TabbedForm>
       <TabbedForm.Tab
-        label="Chỉnh sửa hoá đơn mua hàng"
+        label="Chỉnh sửa thông tin khách hàng"
 
         sx={{ maxWidth: "40em" }}
       >
-        <RecieptEditDetails />
+        <ClientEditDetails />
       </TabbedForm.Tab>
 
     </TabbedForm>
@@ -33,4 +33,4 @@ const RecieptEdit = () => (
 
 const req = [required()];
 
-export default RecieptEdit;
+export default ClientEdit;

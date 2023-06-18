@@ -24,22 +24,22 @@
             "id": 0,
             "Product type": "Vàng",
             "Product type code": 141234,
-            "Unit": "gam",
-            "profit percentage": 5
+            "Unit_id": "Gam",
+            "profit percentage": "6%"
         },
         { 
             "id": 1,
             "Product type": "Nhẫn",
             "Product type code": 1413,
-            "Unit": "cái",
-            "profit percentage": 2
+            "Unit": "Cái",
+            "profit percentage": "2%"
         },
         { 
             "id": 2,
             "Product type": "Dây chuyền",
             "Product type code": 12413,
-            "Unit": "cái",
-            "profit percentage": 4
+            "Unit": "Chiếc",
+            "profit percentage": "4%"
         }
     ],
     "units":[
@@ -110,16 +110,22 @@
     "suppliers": [
         {
             "id": 0,
-            "Supplier name": "ABC",
-            "Supplier code": 123,
-            "address": "abd street",
+            "Supplier name": "Công ty Sen Vàng",
+            "Supplier code": 1233,
+            "address": "Thạch Thất, Hà Giang",
             "Phone": "0982188282"
         },
         {
             "id": 1,
-            "Supplier name": "ABC",
-            "Supplier code": 123,
-            "address": "abd street",
+            "Supplier name": "công ty Jequery",
+            "Supplier code": 1323,
+            "address": "Quang Trung, Nguyễn Huệ",
+            "Phone": "0982188282"
+        }, {
+            "id": 2,
+            "Supplier name": "công ty thong tin",
+            "Supplier code": 1323,
+            "address": "Quang Trung, Nguyễn Huệ",
             "Phone": "0982188282"
         }
     ],
@@ -184,15 +190,16 @@
     "reciepts": [
         {
             "id": 0,
-            "reciept code": 23,
-            "Date": "12/10/2017",
-            "Supplier name": "ABC",
-            
+            "Reciept code": 23,
+            "Date": "2012-02-21",
+            "supplier_id": "1",
+            "supplier name": "công ty Jequery",
+            "Products": 2,
             "Product":[
                 {
                     "id": 0,
                     "Product name": "Vàng scj",
-                    "Product type": "nhẫn",
+                    "productType_id": "nhẫn",
                     "Product code": 1412334,
                     "Quantity": 10,
                     "Unit": "cái",
@@ -222,7 +229,7 @@
             "Product name": "Vàng scj",
             "Quantity": 10,
             "Price": "130$",
-            "Date": "12/10/2021"
+            "Date": "2004-03-21"
         },
         {
             "id": 1,
@@ -230,49 +237,28 @@
             "Product name": "Vàng scj",
             "Quantity": 10,
             "Price": "130$",
-            "Date": "12/10/2021"
+            "Date": "2004-03-21"
         }
     ],
-    "client": [
+    "clients": [
         {
             "id": 0,
-            "Client code": 1900,
-            "Name": "Huy",
+            "Client code": 130,
+            "Name": "Bùi Quang Huy",
             "Phone": "0982188282",
-            "Date of Birth": "10/12/2001",
+            "Date of Birth": "2004-03-21",
             "address": "Thanh xuân, hà nội",
-            "Sex": "male"
+            "Sex": "Nam"
         },
         {
             "id": 1,
-            "Client code": 1900,
-            "Name": "Huy",
-            "Phone": "0982188282",
-            "Date of Birth": "10/12/2001",
-            "address": "Thanh xuân, hà nội",
-            "Sex": "male"
-        }
-    ],
-    "staff": [
-        {
-            "id": 0,
-            "staff code": 1900,
-            "Name": "Huy",
-            "Phone": "0982188282",
-            "Date of Birth": "10/12/2001",
-            "address": "Thanh xuân, hà nội",
-            "Sex": "male",
-            "Staff type": "Sell staff"
-        },
-        {
-            "id": 1,
-            "staff code": 1900,
-            "Name": "Huy",
-            "Phone": "0982188282",
-            "Date of Birth": "10/12/2001",
-            "address": "Thanh xuân, hà nội",
-            "Sex": "female",
-            "Staff type": "hold staff"
+            "Client code": 1230,
+            "Name": "Nguyễn Lan Anh",
+            "Phone": "098218342",
+            "Date of Birth": "2007-03-20",
+            "address": "Quận 5, Hồ Chí Minh",
+            "Sex": "Nữ"
         }
     ]
+  
 }
