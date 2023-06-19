@@ -4,7 +4,7 @@ module.exports = (app) => {
 
   router.get('/', product_in_stock.findAll);
 
-  router.get('/:id', product_in_stock.findOne);
+  // router.get('/:id', product_in_stock.findOne);
 
   app.use('/api/product_in_stock', router);
 };

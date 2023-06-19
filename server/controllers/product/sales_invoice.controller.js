@@ -32,7 +32,7 @@ async function createProductOnSales(idSaleInvoice, idd, countt) {
     // Create a ProductOnSale
     const productOnSale = {
       salesInvoice_id: idSaleInvoice,
-      id: idd,
+      id: `${idSaleInvoice}-${idd}`,
       count: countt,
       // must have info on create
       productTypeName: productType.name,
