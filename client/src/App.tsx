@@ -13,6 +13,7 @@ import reciepts from './models/reciepts';
 import productTypes from './models/productTypes';
 import units from './models/units';
 import clients from './models/clients';
+import sales from './models/sales';
 // dataProvider.getOne('unit',{id:"b49c5caf-0a8f-4209-96e3-560d10bb10e3"}).then(data=>{
 //     console.log(data.data)
 // })
@@ -30,12 +31,13 @@ export const App = () => (
         theme={lightTheme}
         darkTheme={darkTheme}
         defaultTheme="light">
-        <Resource  name="product_type" {...productTypes} />
         <Resource name="unit" {...units} />
-        <Resource name="product" {...products} />
+        <Resource  name="product_type" {...productTypes} />
         <Resource name="supplier" {...suppliers} />
-        <Resource name="purchase_invoice" {...reciepts} />
         <Resource name="customer" {...clients} />
+        <Resource name="purchase_invoice" {...reciepts} />
+        <Resource name="product" {...products} />
+        <Resource name="sales_invoice" {...sales} />
 
     </Admin>
 );

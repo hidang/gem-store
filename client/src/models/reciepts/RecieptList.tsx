@@ -25,7 +25,8 @@ import {
     Datagrid,
     TextField,
     ReferenceField,
-    EditButton
+    EditButton,
+    FunctionField
 } from 'react-admin';
 import RecieptShow from './RecieptShow';
 
@@ -44,14 +45,25 @@ const RecieptList = () => {
                 </Box>
             </FilterContext.Provider>
 
-            <Datagrid rowClick="expand" expand={<RecieptShow/>}>
+            <Datagrid rowClick="expand" expand={<RecieptShow />}>
                 <TextField label="Id" source="id" />
-               
-                <TextField label="Ngày" source="createdAt" />
-                <TextField label="Tên nhà cung cấp" source="supplier name" />
+
+                <FunctionField
+                    label="Ngày tạo"
+                    render={(record: { createdAt: string }) => {
+                        const createdAt = new Date(record.createdAt);
+                        const year = createdAt.getFullYear();
+                        const month = String(createdAt.getMonth() + 1).padStart(2, '0');
+                        const day = String(createdAt.getDate()).padStart(2, '0');
+                        return `${day}-${month}-${year}`;
+                    }}
+                />
+                <ReferenceField label="Nhà cung cấp" source="supplier_id" reference="supplier">
+                    <TextField source="name" />
+                </ReferenceField>
                 <TextField label="Số lượng nhập" source="Products.lenght" />
                 <EditButton label='Chỉnh sửa' />
-                
+
             </Datagrid>
         </ListBase>
     );
@@ -67,7 +79,7 @@ const ListActions = ({ isSmall }: any) => (
         {isSmall && <FilterButton />}
 
         <CreateButton label='Thêm đơn mua hàng' />
-        <ExportButton label='Xuất danh sách hoá đơn mua hàng'/>
+        <ExportButton label='Xuất danh sách hoá đơn mua hàng' />
     </TopToolbar>
 );
 

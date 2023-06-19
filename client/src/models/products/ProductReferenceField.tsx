@@ -10,8 +10,8 @@ const ProductReferenceField = (
 ) => (
   <ReferenceField
     label="Product"
-    source="product_id"
-    reference="products"
+    source="Product_id"
+    reference="Products"
     {...props}
   >
     <TextField source="reference" />
@@ -19,7 +19,7 @@ const ProductReferenceField = (
 );
 
 ProductReferenceField.defaultProps = {
-  source: "product_id",
+  source: "Product_id",
 };
 
 export default ProductReferenceField;

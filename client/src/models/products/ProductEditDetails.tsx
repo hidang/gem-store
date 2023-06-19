@@ -8,38 +8,42 @@ import {
 } from "react-admin";
 import { InputAdornment, Grid } from "@mui/material";
 
+const convertStringToNumber = (value: any) => {
+  const float = parseFloat(value);
+  return isNaN(float) ? null : "0" + float;
+};
+
 export const ProductEditDetails = () => (
   <Grid container columnSpacing={2}>
     <Grid item xs={12} sm={8}>
-      <TextInput source="Product name" fullWidth validate={req} />
-    </Grid>
-    {/* <Grid item xs={12} sm={4}>
-      <ReferenceInput source="Product type" reference="categories">
-        <SelectInput optionText="name" validate={req} fullWidth />
+      <ReferenceInput source="purchaseInvoice_id" reference="purchase_invoice">
+        <SelectInput label="Mã hoá đơn" optionText="id" validate={req} fullWidth />
       </ReferenceInput>
-    </Grid> */}
-    <Grid item xs={12} sm={4}>
-      <NumberInput source="Product code" validate={req} fullWidth />
     </Grid>
-    <Grid item xs={12} sm={4}>
-      <NumberInput source="Supplier code" validate={req} fullWidth />
+    <Grid item xs={12} sm={8}>
+      <TextInput label="Tên sản phẩm" source="name" fullWidth validate={req} />
     </Grid>
-    <Grid item xs={0} sm={4}></Grid>
-
-    <Grid item xs={12} sm={4}>
-      <NumberInput
-        source="Price"
-        InputProps={{
-          endAdornment: <InputAdornment position="start">$</InputAdornment>,
-        }}
-        validate={req}
-        fullWidth
-      />
+    <Grid item xs={12} sm={8}>
+      <ReferenceInput source="productType_id" reference="product_type">
+        <SelectInput label="Loại sản phẩm" optionText="name" validate={req} fullWidth />
+      </ReferenceInput>
+    </Grid>
+    <Grid item xs={12} sm={8}>
+      <ReferenceInput source="supplier_id" reference="supplier">
+        <SelectInput label="Nhà cung cấp" optionText="name" validate={req} fullWidth />
+      </ReferenceInput>
     </Grid>
 
-    <Grid item xs={12} sm={4}>
-      <NumberInput source="Quantity" validate={req} fullWidth />
+    <Grid item xs={12} sm={8}>
+
+      <NumberInput label="Số lượng" source="count" validate={req} fullWidth min={0} />
     </Grid>
+    <Grid item xs={12} sm={8}>
+
+      <NumberInput label="Giá tiền mỗi sản phẩm" source="pricePerProduct" validate={req} fullWidth min={0} />
+    </Grid>
+
+
   </Grid>
 );
 

@@ -14,17 +14,17 @@ import {
   useRecordContext,
 } from "react-admin";
 
-import { ProductEditDetails } from "./ProductEditDetails";
+import { SaleEditDetails } from "./SaleEditDetails";
 
-const ProductEdit = () => (
+const SaleEdit = () => (
   <Edit>
     <TabbedForm>
       <TabbedForm.Tab
-        label="Chỉnh sửa sản phẩm"
+        label="Chỉnh sửa hoá đơn mua hàng"
 
         sx={{ maxWidth: "40em" }}
       >
-        <ProductEditDetails />
+        <SaleEditDetails />
       </TabbedForm.Tab>
 
     </TabbedForm>
@@ -33,4 +33,4 @@ const ProductEdit = () => (
 
 const req = [required()];
 
-export default ProductEdit;
+export default SaleEdit;
