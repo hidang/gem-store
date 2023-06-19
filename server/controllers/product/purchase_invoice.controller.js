@@ -3,7 +3,7 @@ const PurchaseInvoices = db.PurchaseInvoices;
 const Products = db.Products;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Product
+// Create and Save a new PurchaseInvoice
 exports.create = (req, res) => {
   // Validate request
   //   if (!req.body.) {
@@ -13,12 +13,12 @@ exports.create = (req, res) => {
   //     return;
   //   }
 
-  // Create a Product
+  // Create a PurchaseInvoice
   const purchaseInvoice = {};
 
-  console.log('###', purchaseInvoice.purchaseInvoice_id);
+  console.debug('### Create a PurchaseInvoice: ', purchaseInvoice);
 
-  // Save Product in the database
+  // Save PurchaseInvoice in the database
   PurchaseInvoices.create(purchaseInvoice)
     .then((data) => {
       res.send(data);
