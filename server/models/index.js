@@ -126,7 +126,7 @@ db.ProductOnSales.belongsTo(SalesInvoice, {
 });
 
 // create table if not exist // 4. sync database
-// db.sequelize.sync();
+db.sequelize.sync();
 // db.sequelize.sync({ alter: true });
-db.sequelize.sync({ force: true }).then(() => console.log('Drop and re-sync db.'));
+// db.sequelize.sync({ force: true }).then(() => console.log('Drop and re-sync db.'));
 module.exports = db;
