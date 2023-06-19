@@ -40,6 +40,9 @@ require('./routes/customer.routes')(app);
 require('./routes/service/service.routes')(app);
 require('./routes/service/service_type.routes')(app);
 require('./routes/service/service_invoice.routes')(app);
+require('./routes/product/sales_invoice.routes')(app);
+require('./routes/product/product_on_sale.routes')(app);
+require('./routes/product/product_in_stock.routes')(app);
 
 app.listen(PORT, `${DOMAIN}`, () => {
   console.log(`Server listening on port ${PORT}`);
