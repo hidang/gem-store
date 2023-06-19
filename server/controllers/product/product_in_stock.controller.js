@@ -26,7 +26,7 @@ exports.findAll = async (req, res) => {
         productOnStock.push(_product);
       }
     } else {
-      productOnStock.push(product);
+      productOnStock.push(_product);
     }
   }
 
