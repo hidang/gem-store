@@ -16,63 +16,64 @@ exports.create = (req, res) => {
     return;
   }
 
-  console.log('@@@@', body.id);
-
+  // out date
   // Get product
-  Products.findByPk(body.id)
-    .then((dataProduct) => {
-      if (dataProduct) {
-        ProductTypes.findByPk(dataProduct.productType_id)
-          .then((productType) => {
-            if (productType) {
-            } else {
-              console.log(`Cannot find ProductType with id=${id}.`);
-            }
-            // Create a ProductOnSale
-            const productOnSale = {
-              salesInvoice_id: body.salesInvoice_id,
-              id: body.id,
-              count: body.count,
-              // must have info on create
-              productTypeName: productType.name,
-              profitPercent: productType.profitPercent,
+  // Products.findByPk(body.id)
+  //   .then((dataProduct) => {
+  //     if (dataProduct) {
+  //       ProductTypes.findByPk(dataProduct.productType_id)
+  //         .then((productType) => {
+  //           if (productType) {
+  //           } else {
+  //             console.log(`Cannot find ProductType with id=${dataProduct.productType_id}.`);
+  //           }
+  //           // Create a ProductOnSale
+  //           const productOnSale = {
+  //             salesInvoice_id: body.salesInvoice_id,
+  //             id: body.id,
+  //             count: body.count,
+  //             // must have info on create
+  //             productTypeName: productType.name,
+  //             profitPercent: productType.profitPercent,
 
-              // TODO: check count maximum
-              // fetch in there
-              name: dataProduct.name,
-              pricePerProduct: dataProduct.pricePerProduct,
-              massPerProduct: dataProduct.massPerProduct,
-              supplier_id: dataProduct.supplier_id,
-              purchaseInvoice_id: dataProduct.purchaseInvoice_id
-            };
+  //             // TODO: check count maximum
+  //             // fetch in there
+  //             name: dataProduct.name,
+  //             pricePerProduct: dataProduct.pricePerProduct,
+  //             massPerProduct: dataProduct.massPerProduct,
+  //             supplier_id: dataProduct.supplier_id,
+  //             purchaseInvoice_id: dataProduct.purchaseInvoice_id
+  //           };
 
-            console.debug('### Create Product: ', productOnSale);
+  //           console.debug('### Create ProductOnSale: ', productOnSale);
 
-            // Save Product in the database
-            ProductOnSales.create(productOnSale)
-              .then((data) => {
-                res.send(data);
-              })
-              .catch((err) => {
-                res.status(500).send({
-                  message: err.message || 'Some error occurred while creating the Product.'
-                });
-              });
-          })
-          .catch((err) => {
-            console.log('Error retrieving ProductType with id=' + dataProduct.productType_id);
-          });
-      } else {
-        res.status(404).send({
-          message: `Cannot find ProductType with id=${dataProduct.productType_id}.`
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: 'Lỗi xảy ra product_id=' + body.id + ' ' + err.message
-      });
-    });
+  //           // Save Product in the database
+  //           ProductOnSales.create(productOnSale)
+  //             .then((data) => {
+  //               res.send(data);
+  //             })
+  //             .catch((err) => {
+  //               res.status(500).send({
+  //                 message: err.message || 'Some error occurred while creating the Product.'
+  //               });
+  //             });
+  //         })
+  //         .catch((err) => {
+  //           res.status(404).send({
+  //             message: `Error retrieving ProductType with id=' + dataProduct.productType_id.`
+  //           });
+  //         });
+  //     } else {
+  //       res.status(404).send({
+  //         message: `Cannot find ProductType with id=${dataProduct.productType_id}.`
+  //       });
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).send({
+  //       message: 'Lỗi xảy ra product_id=' + body.id + ' ' + err.message
+  //     });
+  //   });
 };
 
 // Retrieve all ProductOnSales from the database.

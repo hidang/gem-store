@@ -37,6 +37,9 @@ module.exports = (sequelize: Sequelize) => {
     },
     profitPercent: {
       type: DataTypes.DOUBLE
+    },
+    unitName: {
+      type: DataTypes.STRING
     }
   });
 

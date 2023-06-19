@@ -2,7 +2,7 @@ module.exports = (app) => {
   const product_on_sale = require('../../controllers/product/product_on_sale.controller.js');
   const router = require('express').Router();
 
-  router.post('/', product_on_sale.create);
+  // router.post('/', product_on_sale.create);
 
   router.get('/', product_on_sale.findAll);
 

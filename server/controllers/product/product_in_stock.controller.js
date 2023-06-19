@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 
 exports.findAll = (req, res) => {
   // TODO:
-  PurchaseInvoices.findAll({ include: ['products'] })
+  Products.findAll()
     .then((data) => {
       res.send(data);
     })
