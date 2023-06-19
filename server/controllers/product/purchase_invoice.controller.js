@@ -6,15 +6,18 @@ const Op = db.Sequelize.Op;
 // Create and Save a new PurchaseInvoice
 exports.create = (req, res) => {
   // Validate request
-  //   if (!req.body.) {
-  //     res.status(400).send({
-  //       message: 'Content can not be empty!'
-  //     });
-  //     return;
-  //   }
+  const body = req.body;
+  if (!body.supplier_id) {
+    res.status(400).send({
+      message: 'supplier_id can not be empty!'
+    });
+    return;
+  }
 
   // Create a PurchaseInvoice
-  const purchaseInvoice = {};
+  const purchaseInvoice = {
+    supplier_id: body.supplier_id
+  };
 
   console.debug('### Create a PurchaseInvoice: ', purchaseInvoice);
 
