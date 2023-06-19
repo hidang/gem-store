@@ -8,6 +8,9 @@ module.exports = (sequelize: Sequelize) => {
       autoIncrement: true,
       unique: true,
       allowNull: false
+    },
+    supplier_id: {
+      type: DataTypes.INTEGER
     }
     // nccId, staffId, productId -> PK
     // createAt - default  // NgayLap
