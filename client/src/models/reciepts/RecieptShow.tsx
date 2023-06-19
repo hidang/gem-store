@@ -1,50 +1,65 @@
-import React from 'react';
+import * as React from 'react';
+import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import { Link, ReferenceField, TextField, useGetMany, useRecordContext, Datagrid, ArrayField, FunctionField } from 'react-admin';
+import { Product, Reciept } from '../../types';
 import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+} from '@mui/material';
+import { TableCellRight } from './TableCellRight';
 
-    List,
-    Datagrid,
-    TextField,
-    ReferenceField,
-    EditButton,
-    Show,
-    ArrayField,
-    ChipField,
-    SimpleShowLayout,
-    SingleFieldList
-} from 'react-admin';
+// const productIds = record ? record.basket.map(item => item.product_id) : [];
+
+// const {  data: products } = useGetMany<Product>(
+//     'products',
+//     { ids: productIds }
+
+// );
+// const productsById = products
+//     ? products.reduce((acc, product) => {
+//           acc[product.id] = product;
+//           return acc;
+//       }, {} as any)
+//     : {};
+
+
 
 const RecieptShow = () => {
+    const record = useRecordContext<Reciept>();
+    if (!record) return null;
     return (
+       
+        <ArrayField source="products">
+            <Datagrid bulkActionButtons={false}>
+                <TextField label="ID" source="id" />
+                <TextField label="Tên Sản phẩm" source="name" />
 
-    
-        <SimpleShowLayout>
-            
-                <TextField source="id" />
-                <TextField source="Reciept code" />
-                <TextField source="Date" />
-                <TextField source="supplier_id" />
-                <TextField source="supplier name" />
-                <TextField source="2" />
+                <ReferenceField label="Loại sản phẩm" source="productType_id" reference="product_type">
+                    <TextField source="name" />
+                </ReferenceField>
+                <TextField label="Số lượng" source="count" />
+                <ReferenceField label="Đơn vị tính" source="productType_id" reference="product_type">
+                    <ReferenceField source="unit_id" reference="unit">
+                        <TextField source="name" />
+                    </ReferenceField>
+                </ReferenceField>
 
+                <ReferenceField label="Nhà cung cấp" source="supplier_id" reference="supplier">
+                    <TextField source="name" />
+                </ReferenceField>
 
-                <ArrayField source="Product">
-                    <Datagrid bulkActionButtons={false}>
-                        <TextField source="id" />
-                        <TextField source="Product name" />
-                        <TextField source="productType_id" />
-                        <TextField source="Product code" />
-                        <TextField source="Quantity" />
-                        <TextField source="Unit" />
-                        <TextField source="Price" />
-                        <TextField source="Total Price" />
-                    </Datagrid>
-                </ArrayField>
-           
-        </SimpleShowLayout>
-    
-    )
+                <TextField label="Đơn giá" source="pricePerProduct" />
+                <FunctionField
+                    label="Thành tiền"
+                    render={(record: { count: number; pricePerProduct: number; }) => `${record.count * record.pricePerProduct}`}
+                />
+            </Datagrid>
+        </ArrayField>
+    );
 };
-
 
 
 export default RecieptShow;

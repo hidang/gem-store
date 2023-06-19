@@ -58,7 +58,7 @@ export type BasketItem = {
     quantity: number;
 };
 
-export interface Invoice extends RaRecord {
+export interface Reciept extends RaRecord {
     date: Date;
 }
 

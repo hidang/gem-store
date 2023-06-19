@@ -6,7 +6,7 @@ import RecieptShow from './RecieptShow';
 
 export default {
     list: RecieptList,
-    
+  
     create: RecieptCreate,
     edit: RecieptEdit,
    

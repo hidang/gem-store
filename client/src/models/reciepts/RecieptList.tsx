@@ -46,10 +46,10 @@ const RecieptList = () => {
 
             <Datagrid rowClick="expand" expand={<RecieptShow/>}>
                 <TextField label="Id" source="id" />
-                <TextField label="Mã đơn mua hàng" source="Reciept code" />
-                <TextField label="Ngày" source="Date" />
+               
+                <TextField label="Ngày" source="createdAt" />
                 <TextField label="Tên nhà cung cấp" source="supplier name" />
-                <TextField label="Số lượng nhập" source="Product.lenght" />
+                <TextField label="Số lượng nhập" source="Products.lenght" />
                 <EditButton label='Chỉnh sửa' />
                 
             </Datagrid>
