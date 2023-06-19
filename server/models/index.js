@@ -39,6 +39,8 @@ const Service = require('./service/service.model.ts')(sequelize);
 const ServiceType = require('./service/service_type.model.ts')(sequelize);
 const Customer = require('./customer.model.ts')(sequelize);
 const ServiceInvoice = require('./service/service_invoice.model.ts')(sequelize);
+const SalesInvoice = require('./product/sales_invoice.model.ts')(sequelize);
+const ProductOnSale = require('./product/product_on_sale.mode.ts')(sequelize);
 
 // 2. set table (__s)
 db.Products = Product;
@@ -50,6 +52,8 @@ db.Services = Service;
 db.ServiceTypes = ServiceType;
 db.Customers = Customer;
 db.ServiceInvoices = ServiceInvoice;
+db.SalesInvoices = SalesInvoice;
+db.ProductOnSales = ProductOnSale;
 
 // 3. set associate
 // - PurchaseInvoice one - many Product
@@ -68,7 +72,8 @@ db.Products.belongsTo(Supplier, {
 });
 // - ProductType one - many Product
 db.ProductTypes.hasMany(Product, {
-  foreignKey: 'productType_id'
+  foreignKey: 'productType_id',
+  as: 'products'
 });
 db.Products.belongsTo(ProductType, {
   foreignKey: 'productType_id'
@@ -88,14 +93,14 @@ db.ServiceTypes.hasMany(Service, {
 db.Services.belongsTo(ServiceType, {
   foreignKey: 'serviceType_id'
 });
-// ServiceInvoices one - many Service
+// ServiceInvoice one - many Service
 db.ServiceInvoices.hasMany(Service, {
   foreignKey: 'serviceInvoice_id'
 });
 db.Services.belongsTo(ServiceInvoice, {
   foreignKey: 'serviceInvoice_id'
 });
-// - Customers one - many ServiceInvoice
+// - Customer one - many ServiceInvoice
 db.Customers.hasMany(ServiceInvoice, {
   foreignKey: 'customer_id',
   as: 'serviceInvoices'
@@ -103,10 +108,25 @@ db.Customers.hasMany(ServiceInvoice, {
 db.ServiceInvoices.belongsTo(Customer, {
   foreignKey: 'customer_id'
 });
+// Customer one - many SalesInvoice
+db.Customers.hasMany(SalesInvoice, {
+  foreignKey: 'customer_id',
+  as: 'salesInvoices'
+});
+db.SalesInvoices.belongsTo(Customer, {
+  foreignKey: 'customer_id'
+});
+// SalesInvoice one - many ProductOnSale
+db.SalesInvoices.hasMany(ProductOnSale, {
+  foreignKey: 'salesInvoice_id',
+  as: 'productOnSales'
+});
+db.ProductOnSales.belongsTo(SalesInvoice, {
+  foreignKey: 'salesInvoice_id'
+});
 
-// 4. sync database
-// create table if not exist
+// create table if not exist // 4. sync database
 db.sequelize.sync();
 // db.sequelize.sync({ alter: true });
-// sequelize.sync({ force: true }).then(() => console.log('Drop and re-sync db.'));
+// db.sequelize.sync({ force: true }).then(() => console.log('Drop and re-sync db.'));
 module.exports = db;
