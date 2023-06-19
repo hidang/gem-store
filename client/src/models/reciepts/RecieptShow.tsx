@@ -9,7 +9,7 @@ import {
     TableHead,
     TableRow,
 } from '@mui/material';
-import { TableCellRight } from './TableCellRight';
+
 
 // const productIds = record ? record.basket.map(item => item.product_id) : [];
 
