@@ -29,13 +29,14 @@ export const SaleEditDetails = () => (
       <DateInput label="Ngày Nhập" source="createdAt" validate={req} fullWidth />
     </Grid>
     <Grid item  >
-      <ArrayInput source="Product" validate={req}>
+      <ArrayInput source="products" validate={req}>
         <SimpleFormIterator inline getItemLabel={index => `#${index + 1}`}>
-          <TextInput label="Tên sản phẩm" source="name" helperText={false} validate={req} />
+          {/* <TextInput label="Tên sản phẩm" source="id" helperText={false} validate={req} /> */}
 
           {/* <ReferenceInput source="productType_id" reference="product_type">
             <SelectInput label="Loại sản phẩm" optionText="name" validate={req} />
           </ReferenceInput> */}
+          <NumberInput label="id" source="id" helperText={false} validate={req} />
           <NumberInput label="Số lượng" source="count" helperText={false} validate={req} />
 
           {/* <NumberInput label="Giá tiền" source="pricePerProduct" helperText={false} InputProps={{

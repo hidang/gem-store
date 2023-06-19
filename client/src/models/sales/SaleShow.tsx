@@ -23,13 +23,7 @@ const SaleShow = () => {
                 <TextField label="Sản phẩm" source="name" />
                 <TextField label="Loại sản phẩm" source="productTypeName" />
                 <TextField label="Số lượng" source="count" />
-
-                <ReferenceField label="Đơn vị tính" source="productType_id" reference="product_type">
-                    <ReferenceField source="unit_id" reference="unit">
-                        <TextField source="name" />
-                    </ReferenceField>
-                </ReferenceField>
-
+                <TextField label="Đơn vị tính" source="unitName" />
 
                 <FunctionField
                     label="Đơn giá"
