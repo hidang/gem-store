@@ -3,17 +3,34 @@ const Products = db.Products;
 const ProductOnSales = db.ProductOnSales;
 const Op = db.Sequelize.Op;
 
-exports.findAll = (req, res) => {
-  // TODO:
-  Products.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving PurchaseInvoices.'
+exports.findAll = async (req, res) => {
+  const dataProducts = await Products.findAll().catch((err) => {
+    console.log(err.message);
+  });
+  const dataProductOnSales = await ProductOnSales.findAll().catch((err) => {
+    console.log(err.message);
+  });
+
+  let productOnStock = [];
+  // handle product on stock
+  for (const _product of dataProducts) {
+    const productSaleds = dataProductOnSales.filter((x) => x.id.split('-')[1] == _product.id);
+
+    if (productSaleds.length > 0) {
+      let countInStock = _product.count;
+      productSaleds.forEach((_productSaled) => {
+        countInStock -= _productSaled.count;
       });
-    });
+      if (countInStock > 0) {
+        _product.count = countInStock;
+        productOnStock.push(_product);
+      }
+    } else {
+      productOnStock.push(_product);
+    }
+  }
+
+  res.send(productOnStock);
 };
 
 exports.findOne = (req, res) => {

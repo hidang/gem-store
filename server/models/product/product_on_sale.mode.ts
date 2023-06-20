@@ -3,8 +3,9 @@ import { DataTypes, Sequelize } from 'sequelize';
 module.exports = (sequelize: Sequelize) => {
   const ProductInStock = sequelize.define('product_on_sale', {
     id: {
+      //  ${idSaleInvoice}-${idd}
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       unique: true,
       allowNull: false
     },
