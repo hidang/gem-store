@@ -6,7 +6,7 @@ import { SaleEditDetails } from './SaleEditDetails';
 const SaleCreate = () => (
     <Create>
         <TabbedForm defaultValues={{ sales: 0 }}>
-            <TabbedForm.Tab label="Thêm hoá đơn mua hàng" sx={{ maxWidth: '40em' }}>
+            <TabbedForm.Tab label="Thêm hoá đơn bán hàng" sx={{ maxWidth: '40em' }}>
                 <SaleEditDetails />
             </TabbedForm.Tab>
         </TabbedForm>

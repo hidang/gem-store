@@ -16,7 +16,7 @@ const convertStringToNumber = (value: any) => {
 export const ProductEditDetails = () => (
   <Grid container columnSpacing={2}>
     <Grid item xs={12} sm={8}>
-      <ReferenceInput source="purchaseInvoice_id" reference="purchase_invoice">
+      <ReferenceInput source="purchaseInvoice_id" reference="purchase_invoice" >
         <SelectInput label="Mã hoá đơn" optionText="id" validate={req} fullWidth />
       </ReferenceInput>
     </Grid>
@@ -30,7 +30,8 @@ export const ProductEditDetails = () => (
     </Grid>
     <Grid item xs={12} sm={8}>
       <ReferenceInput source="supplier_id" reference="supplier">
-        <SelectInput label="Nhà cung cấp" optionText="name" validate={req} fullWidth />
+        <SelectInput label="Nhà cung cấp" optionText="name"  fullWidth />
+        {/* <SelectInput parse={value => value === 'not defined' ? undefined : null} /> */}
       </ReferenceInput>
     </Grid>
 
@@ -40,7 +41,7 @@ export const ProductEditDetails = () => (
     </Grid>
     <Grid item xs={12} sm={8}>
 
-      <NumberInput label="Giá tiền mỗi sản phẩm" source="pricePerProduct" validate={req} fullWidth min={0} />
+      <NumberInput label="Dơn giá mua" source="pricePerProduct" validate={req} fullWidth min={0} />
     </Grid>
 
 

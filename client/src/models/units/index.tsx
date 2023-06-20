@@ -1,4 +1,4 @@
-import ProductIcon from '@mui/icons-material/Collections';
+import UnitIcon from '@mui/icons-material/AppRegistration';
 import UnitList from './UnitList';
 import UnitEdit from './UnitEdit';
 import UnitCreate from './UnitCreate';
@@ -9,5 +9,5 @@ export default {
     create: UnitCreate,
     edit: UnitEdit,
  
-    icon: ProductIcon
+    icon: UnitIcon
 };

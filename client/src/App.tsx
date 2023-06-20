@@ -14,6 +14,7 @@ import productTypes from './models/productTypes';
 import units from './models/units';
 import clients from './models/clients';
 import sales from './models/sales';
+import inventory from './models/inventory';
 // dataProvider.getOne('unit',{id:"b49c5caf-0a8f-4209-96e3-560d10bb10e3"}).then(data=>{
 //     console.log(data.data)
 // })
@@ -26,7 +27,7 @@ export const App = () => (
         dataProvider={dataProvider}
         authProvider={authProvider}
         loginPage={Login}
-        // layout={Layout}
+        layout={Layout}
         disableTelemetry
         theme={lightTheme}
         darkTheme={darkTheme}
@@ -38,6 +39,7 @@ export const App = () => (
         <Resource name="purchase_invoice" {...reciepts} />
         <Resource name="product" {...products} />
         <Resource name="sales_invoice" {...sales} />
+        <Resource name="product_in_stock" {...inventory} />
 
     </Admin>
 );

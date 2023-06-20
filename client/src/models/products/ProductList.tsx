@@ -25,7 +25,8 @@ import {
     Datagrid,
     TextField,
     ReferenceField,
-    EditButton
+    EditButton,
+    FunctionField
 } from 'react-admin';
 
 const ProductList = () => {
@@ -47,18 +48,31 @@ const ProductList = () => {
                 <TextField label="Id" source="id" />
                
                 <TextField label="Tên sản phẩm" source="name" />
-                <TextField label="Số lượng" source="count" />
-                <TextField label="Giá tiền" source="pricePerProduct" />
-
-                <ReferenceField label="Số phiếu mua hàng" source="purchaseInvoice_id" reference="purchase_invoice">
-                    <TextField source="id" />
-                </ReferenceField>
-                <ReferenceField label="Tên nhà cung cấp" source="supplier_id" reference="supplier">
-                    <TextField source="name" />
-                </ReferenceField>
                 <ReferenceField label="Loại sản phẩm" source="productType_id" reference="product_type">
                     <TextField source="name" />
                 </ReferenceField>
+                <TextField label="Số lượng" source="count" />
+                <TextField label="Đơn giá mua" source="pricePerProduct" />
+                {/* <ReferenceField label="Đơn giá bán" source="productType_id" reference="product_type">
+                <TextField source="profitPercent" />
+                </ReferenceField>
+                <FunctionField
+                    
+                    render={(record: { pricePerProduct: number; profitPercent: number; }) => `${ record.pricePerProduct * record.profitPercent}`}
+                /> */}
+                    
+                
+                 
+                
+                <ReferenceField label="Số phiếu mua hàng" source="purchaseInvoice_id" reference="purchase_invoice">
+                    <TextField source="id" />
+                </ReferenceField>
+                <ReferenceField label="Tên nhà cung cấp" source="purchaseInvoice_id" reference="purchase_invoice">
+                <ReferenceField  source="supplier_id" reference="supplier">
+                    <TextField source="name" />
+                </ReferenceField>
+                </ReferenceField>
+                
                 <EditButton label='Chỉnh sửa' />
             </Datagrid>
         </ListBase>

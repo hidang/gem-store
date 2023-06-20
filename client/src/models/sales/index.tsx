@@ -1,4 +1,4 @@
-import ProductIcon from '@mui/icons-material/Collections';
+import SaleIcon from '@mui/icons-material/ShoppingBasket';
 import SaleList from './SaleList';
 import SaleEdit from './SaleEdit';
 import SaleCreate from './SaleCreate';
@@ -10,5 +10,5 @@ export default {
     create: SaleCreate,
     edit: SaleEdit,
    
-    icon: ProductIcon
+    icon: SaleIcon
 };

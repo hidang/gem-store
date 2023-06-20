@@ -1,4 +1,4 @@
-import ProductIcon from '@mui/icons-material/Collections';
+import RecieptIcon from '@mui/icons-material/PlaylistAdd';
 import RecieptList from './RecieptList';
 import RecieptEdit from './RecieptEdit';
 import RecieptCreate from './RecieptCreate';
@@ -10,5 +10,5 @@ export default {
     create: RecieptCreate,
     edit: RecieptEdit,
    
-    icon: ProductIcon
+    icon: RecieptIcon
 };
