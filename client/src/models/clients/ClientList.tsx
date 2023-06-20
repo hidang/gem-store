@@ -25,7 +25,8 @@ import {
     Datagrid,
     TextField,
     ReferenceField,
-    EditButton
+    EditButton,
+    FunctionField
 } from 'react-admin';
 
 const ClientList = () => {
@@ -33,7 +34,7 @@ const ClientList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Clients', 2)} />
+            <Title defaultTitle={getResourceLabel('Thông tin Khách hàng', 1)} />
 
             <FilterContext.Provider value={ClientFilters}>
 
@@ -47,7 +48,17 @@ const ClientList = () => {
                 <TextField label="Id" source="id" />
                 <TextField label="Tên khách hàng" source="name" />
                 <TextField label="Số điện thoại" source="phone" />
-                <TextField label="Ngày sinh" source="dob" />
+                
+                <FunctionField
+                    label="Ngày sinh"
+                    render={(record: { dob: string }) => {
+                        const createdAt = new Date(record.dob);
+                        const year = createdAt.getFullYear();
+                        const month = String(createdAt.getMonth() + 1).padStart(2, '0');
+                        const day = String(createdAt.getDate()).padStart(2, '0');
+                        return `${day}-${month}-${year}`;
+                    }}
+                />
                 <TextField label="Địa chỉ" source="address" />
 
                 <EditButton label='Chỉnh sửa' />

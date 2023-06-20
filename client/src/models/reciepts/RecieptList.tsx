@@ -35,7 +35,7 @@ const RecieptList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Reciepts', 2)} />
+            <Title defaultTitle={getResourceLabel('Hoá đơn bán hàng', 1)} />
 
             <FilterContext.Provider value={RecieptFilters}>
 
@@ -62,6 +62,7 @@ const RecieptList = () => {
                     <TextField source="name" />
                 </ReferenceField>
                 <TextField label="Số lượng nhập" source="Products.lenght" />
+                
                 <EditButton label='Chỉnh sửa' />
 
             </Datagrid>

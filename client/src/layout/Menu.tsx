@@ -41,7 +41,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                         duration: theme.transitions.duration.leavingScreen
                     })
             }}>
-            <DashboardMenuItem />
+            
 
             <SubMenu
                 handleToggle={() => handleToggle('menuCatalog')}

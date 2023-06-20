@@ -32,6 +32,7 @@ const SaleShow = () => {
                 <FunctionField
                     label="Thành tiền"
                     render={(record: { count: number; pricePerProduct: number; profitPercent: number; }) => `${record.count * record.pricePerProduct * record.profitPercent}`}
+                    sx={{ fontWeight: 'bold' }}
                 />
             </Datagrid>
         </ArrayField>

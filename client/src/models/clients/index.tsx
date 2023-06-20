@@ -1,4 +1,4 @@
-import ProductIcon from '@mui/icons-material/Collections';
+import ClientIcon from '@mui/icons-material/PermContactCalendar';
 import ClientList from './ClientList';
 import ClientEdit from './ClientEdit';
 import ClientCreate from './ClientCreate';
@@ -7,5 +7,5 @@ export default {
     list: ClientList,
     create: ClientCreate,
     edit: ClientEdit,
-    icon: ProductIcon
+    icon: ClientIcon
 };

@@ -34,7 +34,7 @@ const UnitList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Units', 2)} />
+            <Title defaultTitle={getResourceLabel('Đơn vị', 1)} />
 
             <FilterContext.Provider value={UnitFilters}>
 

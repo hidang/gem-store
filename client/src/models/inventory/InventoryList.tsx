@@ -34,7 +34,7 @@ const InventoryList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Inventorys', 2)} />
+            <Title defaultTitle={getResourceLabel('Tồn kho', 1)} />
 
             <FilterContext.Provider value={InventoryFilters}>
 

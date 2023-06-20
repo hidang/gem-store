@@ -33,7 +33,7 @@ const ProductTypeList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('ProductTypes', 2)} />
+            <Title defaultTitle={getResourceLabel('Loại sản phẩm', 1)} />
 
             <FilterContext.Provider value={ProductTypeFilters}>
 
@@ -46,7 +46,7 @@ const ProductTypeList = () => {
             <Datagrid>
                 <TextField label="Id" source="id" />
                 <TextField label="Loại Sản phẩm" source="name" />
-                <TextField label="Phần trăm lợi nhuận" source="profitPercent" />
+                <TextField label="Phần trăm lợi nhuận" source="profitPercent" sx={{ fontWeight: 'bold' }}/>
                 
                 <ReferenceField source="unit_id" reference="unit">
                     <TextField source="name" />

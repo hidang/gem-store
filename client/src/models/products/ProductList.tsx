@@ -34,7 +34,7 @@ const ProductList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Products', 2)} />
+            <Title defaultTitle={getResourceLabel('Sản phẩm', 1)} />
 
             <FilterContext.Provider value={ProductFilters}>
 
@@ -53,13 +53,14 @@ const ProductList = () => {
                 </ReferenceField>
                 <TextField label="Số lượng" source="count" />
                 <TextField label="Đơn giá mua" source="pricePerProduct" />
-                {/* <ReferenceField label="Đơn giá bán" source="productType_id" reference="product_type">
-                <TextField source="profitPercent" />
-                </ReferenceField>
+
+
+                <ReferenceField label="% lợi nhuận" source="productType_id" reference="product_type"/>
+                
                 <FunctionField
                     
                     render={(record: { pricePerProduct: number; profitPercent: number; }) => `${ record.pricePerProduct * record.profitPercent}`}
-                /> */}
+                />
                     
                 
                  

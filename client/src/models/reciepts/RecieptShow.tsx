@@ -38,6 +38,8 @@ const RecieptShow = () => {
                 <FunctionField
                     label="Thành tiền"
                     render={(record: { count: number; pricePerProduct: number; }) => `${record.count * record.pricePerProduct}`}
+                    sx={{ fontWeight: 'bold' }}
+                    
                 />
             </Datagrid>
         </ArrayField>

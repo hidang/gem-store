@@ -33,7 +33,7 @@ const SupplierList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Suppliers', 2)} />
+            <Title defaultTitle={getResourceLabel('Nhà cung cấp', 1)} />
 
             <FilterContext.Provider value={SupplierFilters}>
 

@@ -35,7 +35,7 @@ const SaleList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Sales', 2)} />
+            <Title defaultTitle={getResourceLabel('Hoá đơn mua hàng', 1)} />
 
             <FilterContext.Provider value={SaleFilters}>
 
