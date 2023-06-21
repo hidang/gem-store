@@ -1,18 +1,22 @@
 const db = require('../../models');
 const Product = db.Products;
+const PurchaseInvoice = db.PurchaseInvoices;
+
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Product
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
   const body = req.body;
 
   // Validate request
-  if (!body.name || !body.purchaseInvoice_id || !body.supplier_id || !body.productType_id || !body.pricePerProduct) {
+  if (!body.name || !body.purchaseInvoice_id || !body.productType_id || !body.pricePerProduct) {
     res.status(400).send({
       message: 'Content can not be empty!'
     });
     return;
   }
+
+  const supplier = await PurchaseInvoice.findByPk(body.purchaseInvoice_id);
 
   // Create a Product
   const product = {
@@ -20,7 +24,7 @@ exports.create = (req, res) => {
     count: body.count,
     pricePerProduct: body.pricePerProduct,
     purchaseInvoice_id: body.purchaseInvoice_id,
-    supplier_id: body.supplier_id,
+    supplier_id: supplier?.id,
     productType_id: body.productType_id,
     massPerProduct: body.massPerProduct ?? 1
   };
