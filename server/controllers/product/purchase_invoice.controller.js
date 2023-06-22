@@ -117,3 +117,26 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  PurchaseInvoices.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'PurchaseInvoices was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete PurchaseInvoices with ids=${ids}. Maybe PurchaseInvoices was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message + 'Could not delete PurchaseInvoices with id=' + ids
+      });
+    });
+};

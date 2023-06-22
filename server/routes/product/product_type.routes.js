@@ -14,6 +14,8 @@ module.exports = (app) => {
   // Update a product_type with id
   router.put('/:id', product_type.update);
 
+  router.delete('/', product_type.deleteByIds);
+
   // Delete a product_type with id
   router.delete('/:id', product_type.delete);
 

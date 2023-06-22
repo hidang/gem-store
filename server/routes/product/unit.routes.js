@@ -14,6 +14,8 @@ module.exports = (app) => {
   // Update a unit with id
   router.put('/:id', unit.update);
 
+  router.delete('/', unit.deleteByIds);
+
   // Delete a unit with id
   router.delete('/:id', unit.delete);
 

@@ -181,3 +181,26 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  SalesInvoices.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'SalesInvoices was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete SalesInvoices with ids=${ids}. Maybe SalesInvoices was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message + 'Could not delete SalesInvoices with id=' + ids
+      });
+    });
+};

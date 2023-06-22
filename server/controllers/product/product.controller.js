@@ -103,26 +103,42 @@ exports.update = (req, res) => {
 };
 
 // Delete a Product with the specified id in the request
-exports.delete = (req, res) => {
-  const id = req.params.id;
+exports.delete = async (req, res) => {
+  const ids = req.query?.filter ?? [];
+  for (const _id of ids) {
+    await Product.destroy({
+      where: { id: _id }
+    }).catch((err) => {
+      res.status(500).send({
+        message: 'Could not delete Product with id=' + id
+      });
+      return;
+    });
+  }
+  res.send({
+    message: 'Product was deleted successfully!'
+  });
+};
 
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
   Product.destroy({
-    where: { id: id }
+    where: { id: ids }
   })
     .then((num) => {
-      if (num == 1) {
+      if (num) {
         res.send({
-          message: 'Product was deleted successfully!'
+          message: 'Products was deleted successfully! ' + num
         });
       } else {
         res.send({
-          message: `Cannot delete Product with id=${id}. Maybe Product was not found!`
+          message: `Cannot delete Products with ids=${ids}. Maybe Products was not found!`
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Could not delete Product with id=' + id
+        message: err.message + 'Could not delete Products with id=' + ids
       });
     });
 };

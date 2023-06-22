@@ -14,6 +14,8 @@ module.exports = (app) => {
   // Update a service with id
   router.put('/:id', service.update);
 
+  router.delete('/', service.deleteByIds);
+
   // Delete a service with id
   router.delete('/:id', service.delete);
 

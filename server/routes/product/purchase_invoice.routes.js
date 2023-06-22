@@ -10,6 +10,8 @@ module.exports = (app) => {
 
   router.put('/:id', purchase_invoice.update);
 
+  router.delete('/', purchase_invoice.deleteByIds);
+
   router.delete('/:id', purchase_invoice.delete);
 
   app.use('/api/purchase_invoice', router);
