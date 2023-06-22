@@ -46,8 +46,8 @@ const InventoryList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-
                 <TextField label="Đơn vị tính" source="name" />
+                <TextField label="Số lượng" source="count" />
 
 
                 <EditButton label='Chỉnh sửa' />
@@ -66,8 +66,8 @@ const ListActions = ({ isSmall }: any) => (
     <TopToolbar sx={{ minHeight: { sm: 56 } }}>
         {isSmall && <FilterButton />}
 
-        <CreateButton label='Thêm Tồn kho' />
-        <ExportButton label='Xuất danh sách Tồn kho' />
+        
+        <ExportButton label='Xuất báo cáo Tồn kho' />
     </TopToolbar>
 );
 

@@ -8,6 +8,7 @@ import { fetchUtils } from 'ra-core';
 import  simpleRestProvider  from 'ra-data-simple-rest';
 
 import products from './models/products';
+
 import suppliers from './models/suppliers';
 import reciepts from './models/reciepts';
 import productTypes from './models/productTypes';
@@ -43,6 +44,7 @@ export const App = () => (
         <Resource name="customer" {...clients} />
         <Resource name="purchase_invoice" {...reciepts} />
         <Resource name="product" {...products} />
+        
         <Resource name="sales_invoice" {...sales} />
         <Resource name="product_in_stock" {...inventory} />
         <Resource name="service_type" {...serviceTypes} />

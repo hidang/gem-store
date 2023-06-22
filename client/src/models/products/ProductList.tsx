@@ -54,16 +54,6 @@ const ProductList = () => {
                 <TextField label="Số lượng" source="count" />
                 <TextField label="Đơn giá mua" source="pricePerProduct" />
 
-
-                <ReferenceField label="% lợi nhuận" source="productType_id" reference="product_type"/>
-                
-                <FunctionField
-                    
-                    render={(record: { pricePerProduct: number; profitPercent: number; }) => `${ record.pricePerProduct * record.profitPercent}`}
-                />
-                    
-                
-                 
                 
                 <ReferenceField label="Số phiếu mua hàng" source="purchaseInvoice_id" reference="purchase_invoice">
                     <TextField source="id" />
