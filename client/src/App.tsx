@@ -17,6 +17,8 @@ import sales from './models/sales';
 import inventory from './models/inventory';
 import serviceTypes from './models/serviceTypes';
 import serviceList from './models/serviceList';
+import service from './models/service';
+
 
 // dataProvider.getOne('unit',{id:"b49c5caf-0a8f-4209-96e3-560d10bb10e3"}).then(data=>{
 //     console.log(data.data)
@@ -45,9 +47,7 @@ export const App = () => (
         <Resource name="product_in_stock" {...inventory} />
         <Resource name="service_type" {...serviceTypes} />
         <Resource name="service" {...serviceList} />
-
-
-
+        <Resource name="service_invoice" {...service} />
     </Admin>
 );
 

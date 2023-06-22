@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Box, Chip, useMediaQuery, Theme } from '@mui/material';
 
-import { dataProvider } from '../../mock/dataProvider';
+import ServiceShow from './ServiceShow';
+
 import {
     CreateButton,
     ExportButton,
@@ -26,31 +27,29 @@ import {
     TextField,
     ReferenceField,
     EditButton,
+    ShowButton,
+    NumberField,
+    BooleanField,
     FunctionField
 } from 'react-admin';
-import SaleShow from './SaleShow';
 
-const SaleList = () => {
+const ServiceListList = () => {
     const getResourceLabel = useGetResourceLabel();
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
     return (
         <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Hoá đơn mua hàng', 1)} />
+            <Title defaultTitle={getResourceLabel('Đơn vị', 1)} />
 
-            <FilterContext.Provider value={SaleFilters}>
+            <FilterContext.Provider value={ServiceListFilters}>
 
-                <ListActions isSmall={isSmall} />
                 <Box m={0.5}>
                     <FilterForm />
                 </Box>
             </FilterContext.Provider>
 
-            <Datagrid rowClick="expand" expand={<SaleShow />}>
-                <TextField label="Số phiếu" source="id" />
-
-                
-                <FunctionField
-                    label="Ngày tạo"
+            <Datagrid rowClick="expand" expand={<ServiceShow/>}>
+               <FunctionField
+                    label="Ngày lập"
                     render={(record: { createdAt: string }) => {
                         const createdAt = new Date(record.createdAt);
                         const year = createdAt.getFullYear();
@@ -62,26 +61,15 @@ const SaleList = () => {
                 <ReferenceField label="Khách hàng" source="customer_id" reference="customer">
                     <TextField source="name" />
                 </ReferenceField>
-
-                <EditButton label='Chỉnh sửa' />
-
             </Datagrid>
         </ListBase>
     );
 };
 
-export const SaleFilters = [
+export const ServiceListFilters = [
     <SearchInput source="q" alwaysOn />,
 
 ];
 
-const ListActions = ({ isSmall }: any) => (
-    <TopToolbar sx={{ minHeight: { sm: 56 } }}>
-        {isSmall && <FilterButton />}
 
-        <CreateButton label='Thêm đơn bán hàng' />
-        <ExportButton label='Xuất danh sách hoá đơn bán hàng' />
-    </TopToolbar>
-);
-
-export default SaleList;
+export default ServiceListList;

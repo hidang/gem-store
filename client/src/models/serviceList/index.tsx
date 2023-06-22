@@ -4,6 +4,7 @@ import ServiceListEdit from './ServiceListEdit';
 import ServiceListCreate from './ServiceListCreate';
 
 
+
 export default {
     list: ServiceListList,
     create: ServiceListCreate,

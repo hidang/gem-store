@@ -61,6 +61,9 @@ export type BasketItem = {
 export interface Reciept extends RaRecord {
     date: Date;
 }
+export interface Service extends RaRecord {
+    date: Date;
+}
 
 export type ReviewStatus = 'accepted' | 'pending' | 'rejected';
 

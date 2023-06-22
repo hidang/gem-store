@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Box, Chip, useMediaQuery, Theme } from '@mui/material';
 
-
 import {
     CreateButton,
     ExportButton,
@@ -29,7 +28,7 @@ import {
     ShowButton,
     NumberField,
     BooleanField,
-    FunctionField
+    FunctionField,
 } from 'react-admin';
 
 const ServiceListList = () => {
@@ -47,23 +46,23 @@ const ServiceListList = () => {
                 </Box>
             </FilterContext.Provider>
 
-            <Datagrid>
+            <Datagrid >
                 <TextField label="Id" source="id" />
-                <TextField label="Tên dịch vụ " source="name" />
-                <NumberField label="Chi phí riêng" source="extraPrice"/>
-                <NumberField label="tiền trả trước" source="prepay" />
+                <TextField label="Loại dịch vụ " source="name" />
+                <NumberField label="Tiền phát sinh" source='extraPrice'/>
                 <NumberField label="Số lượng" source="count" />
-                <BooleanField label="Tình trạng" source="status" />
+                <NumberField label="Thanh toán trả trước" source='prepay'/>
                 <FunctionField
                     label="Ngày giao"
-                    render={(record: { createdAt: string }) => {
-                        const createdAt = new Date(record.createdAt);
+                    render={(record: { deliveryDate: string }) => {
+                        const createdAt = new Date(record.deliveryDate);
                         const year = createdAt.getFullYear();
                         const month = String(createdAt.getMonth() + 1).padStart(2, '0');
                         const day = String(createdAt.getDate()).padStart(2, '0');
                         return `${day}-${month}-${year}`;
                     }}
                 />
+                <BooleanField label="Tình trạng" source="status" />
                 <EditButton label='Chỉnh sửa' />
 
             </Datagrid>

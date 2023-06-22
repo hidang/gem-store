@@ -8,6 +8,8 @@ import {
   SelectInput,
   TextField,
   TextInput,
+  BooleanInput,
+  DateInput
 } from "react-admin";
 import { InputAdornment, Grid } from "@mui/material";
 
@@ -19,12 +21,22 @@ const convertStringToNumber = (value: any) => {
 export const ServiceListEditDetails = () => (
   <Grid container columnSpacing={2}>
     <Grid item xs={12} sm={8}>
-      <ReferenceField source="serviceType_id" reference="service_type">
-        <SelectInput label="Chọn loại dịch vụ" optionText="name" validate={req} fullWidth />
-      </ReferenceField>
+    <TextInput label="Tên" source="name" fullWidth validate={req} />
+      <ReferenceInput source="serviceInvoice_id" reference="service_invoice">
+        <SelectInput label="Khách hàng" optionText="customer_id" validate={req} fullWidth />
+      </ReferenceInput>
     </Grid>
     <Grid item xs={12} sm={8}>
-      <NumberInput label="Giá" source="price" fullWidth validate={req} />
+      <ReferenceInput source="serviceType_id" reference="service_type">
+        <SelectInput label="Chọn loại dịch vụ" optionText="name" validate={req} fullWidth />
+      </ReferenceInput>
+    </Grid>
+    <Grid item xs={12} sm={8}>
+      <NumberInput label="Tiền trả trước" source="prepay" fullWidth validate={req} />
+      <NumberInput label="Chi phí thêm" source="extraPrice" fullWidth validate={req} />
+      <NumberInput label="Số lượng" source="count" fullWidth validate={req} />
+      <BooleanInput label="Tình trạng" source="status" fullWidth validate={req} />
+      <DateInput label="Ngày lập" source="deliveryDate" fullWidth validate={req} />
     </Grid>
   </Grid>
 );
