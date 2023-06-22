@@ -1,4 +1,5 @@
 // for stable to demo
+
 module.exports = {
   HOST: 'sql12.freesqldatabase.com',
   USER: 'sql12626833',
@@ -15,12 +16,13 @@ module.exports = {
 };
 
 // for backup - develop
+
 // module.exports = {
-//   HOST: 'sql12.freemysqlhosting.net',
-//   USER: 'sql12625914',
-//   PASSWORD: 'TWiJmHGthm',
+//   HOST: 'sql12.freesqldatabase.com',
+//   USER: 'sql12628043',
+//   PASSWORD: '4cJfEzekUT',
 //   PORT: 3306,
-//   DB: 'sql12625914',
+//   DB: 'sql12628043',
 //   dialect: 'mysql',
 //   pool: {
 //     max: 4,

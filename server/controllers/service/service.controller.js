@@ -137,7 +137,7 @@ exports.deleteByIds = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message + 'Could not delete Services with id=' + ids
+        message: 'Could not delete Services with id=' + ids
       });
     });
 };
