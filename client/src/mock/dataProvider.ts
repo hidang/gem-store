@@ -77,13 +77,13 @@ export const dataProvider = {
             method: 'DELETE',
         }).then(({ json }) => ({ data: json })),
 
-    // deleteMany: async (resource: any, params: { ids: any; }) => {
-    //     const query = {
-    //         filter: JSON.stringify({ id: params.ids}),
-    //     };
-    //     const { json } = await httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
-    //     method: 'DELETE',
-    //   });
-    //   return ({ data: json });
-    // }
+    deleteMany: async (resource: any, params: { ids: any; }) => {
+        const query = {
+            filter: JSON.stringify({ id: params.ids}),
+        };
+        const { json } = await httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
+        method: 'DELETE',
+      });
+      return ({ data: json });
+    }
 };
