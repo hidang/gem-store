@@ -112,3 +112,26 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  ServiceTypes.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'ServiceTypes was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete ServiceTypes with ids=${ids}. Maybe ServiceTypes was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message + 'Could not delete ServiceTypes with id=' + ids
+      });
+    });
+};

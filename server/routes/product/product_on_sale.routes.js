@@ -10,6 +10,8 @@ module.exports = (app) => {
 
   router.put('/:id', product_on_sale.update);
 
+  router.delete('/', product_on_sale.deleteByIds);
+
   router.delete('/:id', product_on_sale.delete);
 
   app.use('/api/product_on_sale', router);

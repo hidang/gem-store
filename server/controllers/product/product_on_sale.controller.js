@@ -168,3 +168,26 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  ProductOnSales.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'ProductOnSales was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete ProductOnSales with ids=${ids}. Maybe ProductOnSales was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message + 'Could not delete ProductOnSales with id=' + ids
+      });
+    });
+};

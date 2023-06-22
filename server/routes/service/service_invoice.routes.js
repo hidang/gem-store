@@ -14,6 +14,8 @@ module.exports = (app) => {
   // Update a service_invoice with id
   router.put('/:id', service_invoice.update);
 
+  router.delete('/', service_invoice.deleteByIds);
+
   // Delete a service_invoice with id
   router.delete('/:id', service_invoice.delete);
 

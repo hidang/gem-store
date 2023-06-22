@@ -113,3 +113,26 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  Suppliers.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'Suppliers was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete Suppliers with ids=${ids}. Maybe Suppliers was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message + 'Could not delete Suppliers with id=' + ids
+      });
+    });
+};
