@@ -16,7 +16,7 @@ exports.create = async (req, res) => {
     return;
   }
 
-  const supplier = await PurchaseInvoice.findByPk(body.purchaseInvoice_id);
+  const purchaseInvoice = await PurchaseInvoice.findByPk(body.purchaseInvoice_id);
 
   // Create a Product
   const product = {
@@ -24,7 +24,7 @@ exports.create = async (req, res) => {
     count: body.count,
     pricePerProduct: body.pricePerProduct,
     purchaseInvoice_id: body.purchaseInvoice_id,
-    supplier_id: supplier?.id,
+    supplier_id: purchaseInvoice?.supplier_id,
     productType_id: body.productType_id,
     massPerProduct: body.massPerProduct ?? 1
   };
