@@ -52,3 +52,26 @@ exports.findOne = (req, res) => {
       });
     });
 };
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  Products.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'Products was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete Products with ids=${ids}. Maybe Products was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message + 'Could not delete Products with id=' + ids
+      });
+    });
+};
