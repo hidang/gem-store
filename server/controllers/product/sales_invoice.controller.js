@@ -62,9 +62,9 @@ async function createProductOnSales(idSaleInvoice, idd, countt) {
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.customer_id || !body.products) {
+  if (!body.customer_id) {
     res.status(400).send({
-      message: 'Content customer_id || products[] can not be empty!'
+      message: 'Content customer_id can not be empty!'
     });
     return;
   }
@@ -80,9 +80,12 @@ exports.create = (req, res) => {
   SalesInvoices.create(salesInvoice)
     .then(async (salesInvoice) => {
       // create products on sale
-      for (const product of body.products) {
-        await createProductOnSales(salesInvoice.id, product.id, product.count);
+      if (body.products != null) {
+        for (const product of body.products) {
+          await createProductOnSales(salesInvoice.id, product.id, product.count);
+        }
       }
+
       const result = await SalesInvoices.findByPk(salesInvoice.id, { include: ['productOnSales'] });
 
       res.send(result);
