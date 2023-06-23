@@ -17,7 +17,8 @@ exports.create = (req, res) => {
 
   // Create a ServiceInvoice
   const serviceInvoice = {
-    customer_id: body.customer_id
+    customer_id: body.customer_id,
+    createdAt: body.createdAt ?? new Date().toISOString()
   };
 
   console.debug('### Create a ServiceInvoice: ', serviceInvoice);
