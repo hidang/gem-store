@@ -37,7 +37,7 @@ export const SaleEditDetails = () => (
             <SelectInput label="Loại sản phẩm" optionText="name" validate={req} />
           </ReferenceInput> */}
           <NumberInput label="id" source="id" helperText={false} validate={req} />
-          <NumberInput label="Số lượng" source="count" helperText={false} validate={req} />
+          <NumberInput label="Số lượng" source="count" helperText={false} validate={req} min={1}/>
 
           {/* <NumberInput label="Giá tiền" source="pricePerProduct" helperText={false} InputProps={{
             startAdornment: (

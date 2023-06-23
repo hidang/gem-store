@@ -31,7 +31,7 @@ export const ProductTypeEditDetails = () => (
         startAdornment: (
           <InputAdornment position="start">%</InputAdornment>
         ),
-      }} validate={req} fullWidth min={0} />
+      }} validate={req} fullWidth min={0.1} max={1000} />
     </Grid>
 
   </Grid>
