@@ -26,6 +26,7 @@ const RecieptShow = () => {
                 <ReferenceField label="Loại sản phẩm" source="productType_id" reference="product_type">
                     <TextField source="name" />
                 </ReferenceField>
+                
                 <TextField label="Số lượng" source="count" />
                 <ReferenceField label="Đơn vị tính" source="productType_id" reference="product_type">
                     <ReferenceField source="unit_id" reference="unit">

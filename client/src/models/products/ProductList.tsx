@@ -35,6 +35,9 @@ const ProductList = () => {
         <ReferenceField label="Loại sản phẩm" source="productType_id" reference="product_type">
           <TextField source="name" />
         </ReferenceField>
+        <ReferenceField label="% lợi nhuận" source="productType_id" reference="product_type">
+                    <TextField source="profitPercent" />
+          </ReferenceField>
         <TextField label="Số lượng" source="count" />
         <TextField label="Đơn giá mua" source="pricePerProduct" />
         <ReferenceField label="Số phiếu mua hàng" source="purchaseInvoice_id" reference="purchase_invoice">

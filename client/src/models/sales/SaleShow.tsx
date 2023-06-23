@@ -24,7 +24,7 @@ const SaleShow = () => {
                 <TextField label="Loại sản phẩm" source="productTypeName" />
                 <TextField label="Số lượng" source="count" />
                 <TextField label="Đơn vị tính" source="unitName" />
-
+                <TextField label="% lợi nhuận" source="profitPercent" />
                 <FunctionField
                     label="Đơn giá"
                     render={(record: { profitPercent: number; pricePerProduct: number; }) => `${record.profitPercent * record.pricePerProduct}`}
