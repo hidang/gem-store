@@ -71,7 +71,8 @@ exports.create = (req, res) => {
 
   // Create a SalesInvoice
   const salesInvoice = {
-    customer_id: body.customer_id
+    customer_id: body.customer_id,
+    createdAt: body.createdAt ?? new Date().toISOString()
   };
 
   console.debug('###', salesInvoice);
