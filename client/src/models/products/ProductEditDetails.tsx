@@ -37,7 +37,7 @@ export const ProductEditDetails = () => (
 
     <Grid item xs={12} sm={8}>
 
-      <NumberInput label="Số lượng" source="count" validate={req} fullWidth min={0} />
+      <NumberInput label="Số lượng" source="count" validate={req} fullWidth min={1} />
     </Grid>
     <Grid item xs={12} sm={8}>
 
