@@ -34,7 +34,7 @@ export const ServiceListEditDetails = () => (
     <Grid item xs={12} sm={8}>
       <NumberInput label="Tiền trả trước" source="prepay" fullWidth validate={req} />
       <NumberInput label="Chi phí thêm" source="extraPrice" fullWidth validate={req} />
-      <NumberInput label="Số lượng" source="count" fullWidth validate={req} min={1}/>
+      <NumberInput label="Số lượng" source="count" fullWidth validate={req} />
       <BooleanInput label="Tình trạng" source="status" fullWidth validate={req} />
       <DateInput label="Ngày lập" source="deliveryDate" fullWidth validate={req} />
     </Grid>

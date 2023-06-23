@@ -48,7 +48,9 @@ const ServiceListList = () => {
 
             <Datagrid >
                 <TextField label="Id" source="id" />
-                <TextField label="Loại dịch vụ " source="name" />
+                <ReferenceField label="Loại dịch vụ" source="serviceType_id" reference="service_type">
+                    <NumberField label="Loại dịch vụ" source="name" />
+                </ReferenceField>
                 <NumberField label="Tiền phát sinh" source='extraPrice'/>
                 <NumberField label="Số lượng" source="count" />
                 <NumberField label="Thanh toán trả trước" source='prepay'/>
@@ -62,7 +64,7 @@ const ServiceListList = () => {
                         return `${day}-${month}-${year}`;
                     }}
                 />
-                <ReferenceField source="serviceType_id" reference="service_type">
+                <ReferenceField  label="Tổng tiền" source="serviceType_id" reference="service_type">
                     <NumberField label="Tổng tiền" source="price" />
                 </ReferenceField>
                 <EditButton label='Chỉnh sửa' />
