@@ -1,74 +1,65 @@
-import * as React from 'react';
-import { Box, Chip, useMediaQuery, Theme } from '@mui/material';
-
+import React from 'react';
+import { Box } from '@mui/material';
 
 import {
-    CreateButton,
-    ExportButton,
-    FilterButton,
-    FilterForm,
-    FilterContext,
-    InputProps,
-    ListBase,
-    NumberInput,
-    Pagination,
-    ReferenceInput,
-    SearchInput,
-    SelectInput,
-    SortButton,
-    Title,
-    TopToolbar,
-    useTranslate,
-    useGetResourceLabel,
-    Resource,
-    List,
-    Datagrid,
-    TextField,
-    ReferenceField,
-    EditButton,
-    ShowButton
+  CreateButton,
+  ExportButton,
+  FilterButton,
+  FilterForm,
+  FilterContext,
+  SearchInput,
+  TopToolbar,
+  Title,
+  List,
+  Datagrid,
+  TextField,
+  EditButton,
+  useGetResourceLabel,
+  ReferenceInput,
+  TextInput,
 } from 'react-admin';
 
+
+const postFilters = [
+    <TextInput source="q" label="Search" alwaysOn />,
+    <ReferenceInput source="userId" label="User" reference="users" />,
+];
+
 const UnitList = () => {
-    const getResourceLabel = useGetResourceLabel();
-    const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
-    return (
-        <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Đơn vị', 1)} />
+  return (
+    <List perPage={10} sort={{ field: 'id', order: 'DESC' }}title={'Đơn vị tính'}>
+   
+      <FilterContext.Provider value={UnitFilters}>
+        <ListActions />
+        <Box m={0.5}>
+          <FilterForm />
+        </Box>
+      </FilterContext.Provider>
+      <Datagrid>
+        <TextField label="Id" source="id" />
+        <TextField label="Đơn vị tính" source="name" />
+        <EditButton label='Chỉnh sửa' />
+      </Datagrid>
+    </List>
+  );
+};
 
-            <FilterContext.Provider value={UnitFilters}>
-
-                <ListActions isSmall={isSmall} />
-                <Box m={0.5}>
-                    <FilterForm />
-                </Box>
-            </FilterContext.Provider>
-
-            <Datagrid>
-                <TextField label="Id" source="id" />
-
-                <TextField label="Đơn vị tính" source="name" />
-
-
-                <EditButton label='Chỉnh sửa' />
-
-            </Datagrid>
-        </ListBase>
-    );
+const UnitListTitle = () => {
+  const getResourceLabel = useGetResourceLabel();
+  const resourceLabel = getResourceLabel('Đơn vị', 1);
+  return <Title defaultTitle={resourceLabel} />;
 };
 
 export const UnitFilters = [
-    <SearchInput source="q" alwaysOn />,
-
+  <SearchInput source="q" alwaysOn />,
 ];
 
-const ListActions = ({ isSmall }: any) => (
-    <TopToolbar sx={{ minHeight: { sm: 56 } }}>
-        {isSmall && <FilterButton />}
-
-        <CreateButton label='Thêm đơn vị tính' />
-        <ExportButton label='Xuất danh sách đơn vị tính' />
-    </TopToolbar>
+const ListActions = () => (
+  <TopToolbar sx={{ minHeight: { sm: 56 } }}>
+    <FilterButton />
+    <CreateButton label='Thêm đơn vị tính' />
+    <ExportButton label='Xuất danh sách đơn vị tính' />
+  </TopToolbar>
 );
 
 export default UnitList;

@@ -1,73 +1,61 @@
-import * as React from 'react';
-import { Box, Chip, useMediaQuery, Theme } from '@mui/material';
-
-import { dataProvider } from '../../mock/dataProvider';
+import React from 'react';
+import { Box, useMediaQuery, Theme } from '@mui/material';
 import {
-    CreateButton,
-    ExportButton,
-    FilterButton,
-    FilterForm,
-    FilterContext,
-    InputProps,
-    ListBase,
-    NumberInput,
-    Pagination,
-    ReferenceInput,
-    SearchInput,
-    SelectInput,
-    SortButton,
-    Title,
-    TopToolbar,
-    useTranslate,
-    useGetResourceLabel,
-    Resource,
-    List,
-    Datagrid,
-    TextField,
-    ReferenceField,
-    EditButton
+  ExportButton,
+  FilterButton,
+  FilterForm,
+  FilterContext,
+  List,
+  Title,
+  TopToolbar,
+  TextField,
+  EditButton,
+  useGetResourceLabel,
+  Datagrid,
+  SearchInput,
+  CreateButton
 } from 'react-admin';
 
 const SupplierList = () => {
-    const getResourceLabel = useGetResourceLabel();
-    const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
-    return (
-        <ListBase perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-            <Title defaultTitle={getResourceLabel('Nhà cung cấp', 1)} />
+  const getResourceLabel = useGetResourceLabel();
+  const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
 
-            <FilterContext.Provider value={SupplierFilters}>
+  return (
+    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }} title={'Danh sách nhà cung cấp'}>
+      
+      <FilterContext.Provider value={SupplierFilters}>
+        <ListActions isSmall={isSmall} />
+        <Box m={0.5}>
+          <FilterForm />
+        </Box>
+      </FilterContext.Provider>
+      <Datagrid>
+        <TextField label="Id" source="id" />
+        <TextField label="Tên nhà cung cấp" source="name" />
+        <TextField label="Địa chỉ nhà cung cấp" source="address" />
+        <TextField label="Số điện thoại" source="phone" />
+        <EditButton label='Chỉnh sửa' />
+      </Datagrid>
+    </List>
+  );
+};
 
-                <ListActions isSmall={isSmall} />
-                <Box m={0.5}>
-                    <FilterForm />
-                </Box>
-            </FilterContext.Provider>
-
-            <Datagrid>
-                <TextField label="Id" source="id" />
-               
-                <TextField label="Tên nhà cung cấp" source="name" />
-                <TextField label="Địa chỉ nhà cung cấp" source="address" />
-                <TextField label="Số điện thoại" source="phone" />
-
-                <EditButton label='Chỉnh sửa' />
-            </Datagrid>
-        </ListBase>
-    );
+const SupplierListTitle = () => {
+  const getResourceLabel = useGetResourceLabel();
+  const resourceLabel = getResourceLabel('Nhà cung cấp', 1);
+  return <Title defaultTitle={resourceLabel} />;
 };
 
 export const SupplierFilters = [
-    <SearchInput  source="q" alwaysOn />,
-   
+  <SearchInput source="q" alwaysOn />,
 ];
 
 const ListActions = ({ isSmall }: any) => (
-    <TopToolbar sx={{ minHeight: { sm: 56 } }}>
-        {isSmall && <FilterButton />}
-        
-        <CreateButton label='Thêm nhà cung cấp'/>
-        <ExportButton label='Xuất danh sách nhà cung cấp'/>
-    </TopToolbar>
+  <TopToolbar sx={{ minHeight: { sm: 56 } }}>
+    {isSmall && <FilterButton />}
+    <CreateButton label='Thêm nhà cung cấp' />
+    <ExportButton label='Xuất danh sách nhà cung cấp' />
+  </TopToolbar>
 );
 
 export default SupplierList;

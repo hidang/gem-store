@@ -13,10 +13,10 @@ exports.create = (req, res) => {
     });
     return;
   }
-
   // Create a PurchaseInvoice
   const purchaseInvoice = {
-    supplier_id: body.supplier_id
+    supplier_id: body.supplier_id,
+    createdAt: body.createdAt ?? new Date().toISOString()
   };
 
   console.debug('### Create a PurchaseInvoice: ', purchaseInvoice);
