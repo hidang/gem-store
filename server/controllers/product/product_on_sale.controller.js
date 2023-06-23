@@ -71,9 +71,9 @@ exports.create = async (req, res) => {
 
     // Save Product in the database
     const product = await ProductOnSales.create(productOnSale).catch((err) => {
-      console.log(err.message + 'Some error occurred while creating the Product.');
+      console.log('Some error occurred while creating the Product.');
       res.status(500).send({
-        message: err.message + 'Some error occurred while creating the Product.'
+        message: 'Some error occurred while creating the Product.'
       });
     });
     res.send(product);
@@ -187,7 +187,7 @@ exports.deleteByIds = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message + 'Could not delete ProductOnSales with id=' + ids
+        message: 'Could not delete ProductOnSales with id=' + ids
       });
     });
 };

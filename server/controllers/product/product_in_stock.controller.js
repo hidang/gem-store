@@ -22,13 +22,21 @@ exports.findAll = async (req, res) => {
         countInStock -= _productSaled.count;
       });
       if (countInStock > 0) {
+        const _countBuy = _product.count;
+        _product.dataValues.countBuy = _countBuy;
         _product.count = countInStock;
+        _product.dataValues.countSale = _countBuy - countInStock;
+
         productOnStock.push(_product);
       }
     } else {
+      _product.dataValues.countSale = 0;
+      _product.dataValues.countBuy = _product.count;
+
       productOnStock.push(_product);
     }
   }
+  console.debug('@@@@ get all >> productOnStock: ', productOnStock);
 
   res.send(productOnStock);
 };
@@ -71,7 +79,7 @@ exports.deleteByIds = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message + 'Could not delete Products with id=' + ids
+        message: 'Could not delete Products with id=' + ids + ' Products was using'
       });
     });
 };
