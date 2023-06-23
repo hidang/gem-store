@@ -46,11 +46,17 @@ const InventoryList = () => {
 
             <Datagrid>
                 <TextField label="Id" source="id" />
-                <TextField label="Đơn vị tính" source="name" />
-                <TextField label="Số lượng" source="count" />
+                <TextField label="Sản phẩm" source="name" />
+                <ReferenceField label="Đơn vị tính" source="productType_id" reference="product_type">
+                    <ReferenceField source="unit_id" reference="unit">
+                        <TextField source="name" />
+                    </ReferenceField>
+                </ReferenceField>
+                <TextField label="Số lượng mua vào" source="countBuy" />
+                <TextField label="Số lượng bán ra" source="countSale" />
 
 
-                <EditButton label='Chỉnh sửa' />
+              
 
             </Datagrid>
         </ListBase>
