@@ -18,7 +18,9 @@ const ServiceShow = () => {
         <ArrayField source="services">
             <Datagrid bulkActionButtons={false}>
             <TextField label="Id" source="id" />
-                <TextField label="Loại dịch vụ " source="name" />
+                <ReferenceField label="Loại dịch vụ" source="serviceType_id" reference="service_type">
+                    <NumberField label="Loại dịch vụ" source="name" />
+                </ReferenceField>
                 <NumberField label="Tiền phát sinh" source='extraPrice'/>
                 <NumberField label="Số lượng" source="count" />
                 <NumberField label="Thanh toán trả trước" source='prepay'/>
@@ -32,7 +34,7 @@ const ServiceShow = () => {
                         return `${day}-${month}-${year}`;
                     }}
                 />
-                <ReferenceField source="serviceType_id" reference="service_type">
+                <ReferenceField label="Tổng tiền" source="serviceType_id" reference="service_type">
                     <NumberField label="Tổng tiền" source="price" />
                 </ReferenceField>
                 <BooleanField label="Tình trạng" source="status" />

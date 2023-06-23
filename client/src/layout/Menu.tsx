@@ -38,6 +38,8 @@ const Menu = ({ dense = false }: MenuProps) => {
                 width: open ? 250 : 50,
                 marginTop: 1,
                 marginBottom: 1,
+                marginLeft: -4,
+                paddingLeft: 2,
                 transition: (theme) =>
                     theme.transitions.create('width', {
                         easing: theme.transitions.easing.sharp,
