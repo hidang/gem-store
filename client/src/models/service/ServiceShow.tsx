@@ -14,11 +14,8 @@ import {
 
 
 const ServiceShow = () => {
-    const record = useRecordContext<Service>();
-    if (!record) return null;
     return (
-       
-        <ArrayField source="serviceList">
+        <ArrayField source="services">
             <Datagrid bulkActionButtons={false}>
             <TextField label="Id" source="id" />
                 <TextField label="Loại dịch vụ " source="name" />
