@@ -22,8 +22,8 @@ export const ServiceListEditDetails = () => (
   <Grid container columnSpacing={2}>
     <Grid item xs={12} sm={8}>
     <TextInput label="Tên" source="name" fullWidth validate={req} />
-      <ReferenceInput source="serviceInvoice_id" reference="service_invoice">
-        <SelectInput label="Khách hàng" optionText="customer_id" validate={req} fullWidth />
+      <ReferenceInput source="serviceInvoice_id" reference="customer">
+        <SelectInput label="Khách hàng" optionText="name" validate={req} fullWidth />
       </ReferenceInput>
     </Grid>
     <Grid item xs={12} sm={8}>
