@@ -21,8 +21,8 @@ const ClientList = () => {
   const getResourceLabel = useGetResourceLabel();
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
   return (
-    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-      <ClientListTitle />
+    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }} title={'Thông tin khách hàng'}>
+      
       <FilterContext.Provider value={ClientFilters}>
         <ListActions isSmall={isSmall} />
         <Box m={0.5}>

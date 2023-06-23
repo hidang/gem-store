@@ -21,8 +21,8 @@ const SupplierList = () => {
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
 
   return (
-    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-      <SupplierListTitle />
+    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }} title={'Danh sách nhà cung cấp'}>
+      
       <FilterContext.Provider value={SupplierFilters}>
         <ListActions isSmall={isSmall} />
         <Box m={0.5}>

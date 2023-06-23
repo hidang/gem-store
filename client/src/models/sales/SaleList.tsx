@@ -23,8 +23,8 @@ const SaleList = () => {
   const getResourceLabel = useGetResourceLabel();
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
   return (
-    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-      <SaleListTitle />
+    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }}title={'Hoá đơn bán hàng'}>
+      
       <FilterContext.Provider value={SaleFilters}>
         <ListActions isSmall={isSmall} />
         <Box m={0.5}>
@@ -46,7 +46,7 @@ const SaleList = () => {
         <ReferenceField label="Khách hàng" source="customer_id" reference="customer">
           <TextField source="name" />
         </ReferenceField>
-        <EditButton label='Chỉnh sửa' />
+        {/* <EditButton label='Chỉnh sửa' /> */}
       </Datagrid>
     </List>
   );

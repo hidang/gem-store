@@ -21,8 +21,8 @@ const ProductTypeList = () => {
   const getResourceLabel = useGetResourceLabel();
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
   return (
-    <List perPage={24} sort={{ field: 'id', order: 'ASC' }}>
-      <ProductTypeListTitle />
+    <List perPage={24} sort={{ field: 'id', order: 'ASC' }} title={'Loại sản phẩm'}>
+     
       <FilterContext.Provider value={ProductTypeFilters}>
         <ListActions isSmall={isSmall} />
         <Box m={0.5}>

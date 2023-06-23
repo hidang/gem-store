@@ -19,8 +19,8 @@ import {
 const InventoryList = () => {
   const getResourceLabel = useGetResourceLabel();
   return (
-    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }}>
-      <InventoryListTitle />
+    <List perPage={24} sort={{ field: 'reference', order: 'ASC' }} title={'Tồn kho'}>
+      
       <FilterContext.Provider value={InventoryFilters}>
         <ListActions />
         <Box m={0.5}>

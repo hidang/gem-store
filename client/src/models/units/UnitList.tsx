@@ -27,8 +27,8 @@ const postFilters = [
 
 const UnitList = () => {
   return (
-    <List perPage={10} sort={{ field: 'id', order: 'DESC' }}>
-      <UnitListTitle />
+    <List perPage={10} sort={{ field: 'id', order: 'DESC' }}title={'Đơn vị tính'}>
+   
       <FilterContext.Provider value={UnitFilters}>
         <ListActions />
         <Box m={0.5}>

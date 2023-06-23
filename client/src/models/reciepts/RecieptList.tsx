@@ -23,8 +23,8 @@ const RecieptList = () => {
   const getResourceLabel = useGetResourceLabel();
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('md'));
   return (
-    <List perPage={24} sort={{ field: 'id', order: 'ASC' }}>
-      <RecieptListTitle />
+    <List perPage={24} sort={{ field: 'id', order: 'ASC' }} title={'Hoá đơn mua hàng'}>
+      
       <FilterContext.Provider value={RecieptFilters}>
         <ListActions isSmall={isSmall} />
         <Box m={0.5}>
