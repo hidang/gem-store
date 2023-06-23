@@ -13,6 +13,9 @@ import sales from '../models/sales';
 import inventory from '../models/inventory';
 
 import SubMenu from './SubMenu';
+import ServiceList from '../models/serviceList';
+import Service from '../models/service';
+import ServiceTypes from '../models/serviceTypes';
 
 type MenuName = 'menuCatalog' | 'menuSales' | 'menuCustomers';
 
@@ -120,15 +123,15 @@ const Menu = ({ dense = false }: MenuProps) => {
                 handleToggle={() => handleToggle('menuCatalog')}
                 isOpen={state.menuCatalog}
                 name="Dịch vụ"
-                icon={<products.icon />}
+                icon={<ServiceList.icon />}
                 dense={dense}>
                 <MenuItemLink
                     to="/service_type"
                     state={{ _scrollToTop: true }}
-                    primaryText={translate(`Thêm dịch vụ`, {
+                    primaryText={translate(`Loại dịch vụ`, {
                         smart_count: 2
                     })}
-                    leftIcon={<products.icon />}
+                    leftIcon={<ServiceList.icon />}
                     dense={dense}
                 />
                 <MenuItemLink
@@ -137,7 +140,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                     primaryText={translate(`Tạo phiếu dịch vụ`, {
                         smart_count: 2
                     })}
-                    leftIcon={<products.icon />}
+                    leftIcon={<Service.icon />}
                     dense={dense}
                 />
                 <MenuItemLink
@@ -146,7 +149,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                     primaryText={translate(`Danh sách phiếu dịch vụ`, {
                         smart_count: 2
                     })}
-                    leftIcon={<products.icon />}
+                    leftIcon={<ServiceTypes.icon />}
                     dense={dense}
                 />
             </SubMenu>

@@ -1,8 +1,8 @@
-import ServiceTypeIcon from '@mui/icons-material/AppRegistration';
+
 import ServiceTypeList from './ServiceTypeList';
 import ServiceTypeEdit from './ServiceTypeEdit';
 import ServiceTypeCreate from './ServiceTypeCreate';
-
+import ServiceTypeIcon from '@mui/icons-material/Toc';
 
 export default {
     list: ServiceTypeList,

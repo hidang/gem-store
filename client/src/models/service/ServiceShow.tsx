@@ -32,6 +32,9 @@ const ServiceShow = () => {
                         return `${day}-${month}-${year}`;
                     }}
                 />
+                <ReferenceField source="serviceType_id" reference="service_type">
+                    <NumberField label="Tổng tiền" source="price" />
+                </ReferenceField>
                 <BooleanField label="Tình trạng" source="status" />
 
             </Datagrid>

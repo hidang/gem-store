@@ -62,7 +62,9 @@ const ServiceListList = () => {
                         return `${day}-${month}-${year}`;
                     }}
                 />
-                <BooleanField label="Tình trạng" source="status" />
+                <ReferenceField source="serviceType_id" reference="service_type">
+                    <NumberField label="Tổng tiền" source="price" />
+                </ReferenceField>
                 <EditButton label='Chỉnh sửa' />
 
             </Datagrid>
