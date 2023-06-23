@@ -26,7 +26,7 @@ export const SaleEditDetails = () => (
     </Grid>
 
     <Grid item xs={12} sm={4}>
-      <DateInput label="Ngày Nhập" source="createdAt" validate={req} fullWidth />
+      <DateInput label="Ngày Bán" source="createdAt" validate={req} fullWidth />
     </Grid>
     <Grid item  >
       <ArrayInput source="products" validate={req}>

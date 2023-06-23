@@ -14,6 +14,8 @@ module.exports = (app) => {
   // Update a service_type with id
   router.put('/:id', service_type.update);
 
+  router.delete('/', service_type.deleteByIds);
+
   // Delete a service_type with id
   router.delete('/:id', service_type.delete);
 

@@ -58,14 +58,16 @@ db.ProductOnSales = ProductOnSale;
 // 3. set associate
 // - PurchaseInvoice one - many Product
 db.PurchaseInvoices.hasMany(Product, {
-  foreignKey: 'purchaseInvoice_id'
+  foreignKey: 'purchaseInvoice_id',
+  onDelete: 'CASCADE'
 });
 db.Products.belongsTo(PurchaseInvoice, {
   foreignKey: 'purchaseInvoice_id'
 });
 // - Suppliers one - many Product
 db.Suppliers.hasMany(Product, {
-  foreignKey: 'supplier_id'
+  foreignKey: 'supplier_id',
+  onDelete: 'RESTRICT'
 });
 db.Products.belongsTo(Supplier, {
   foreignKey: 'supplier_id'
@@ -73,7 +75,8 @@ db.Products.belongsTo(Supplier, {
 // - ProductType one - many Product
 db.ProductTypes.hasMany(Product, {
   foreignKey: 'productType_id',
-  as: 'products'
+  as: 'products',
+  onDelete: 'RESTRICT'
 });
 db.Products.belongsTo(ProductType, {
   foreignKey: 'productType_id'
@@ -81,21 +84,24 @@ db.Products.belongsTo(ProductType, {
 // - Unit one - many ProductType
 db.Units.hasMany(ProductType, {
   foreignKey: 'unit_id',
-  as: 'productTypes'
+  as: 'productTypes',
+  onDelete: 'RESTRICT'
 });
 db.ProductTypes.belongsTo(Unit, {
   foreignKey: 'unit_id'
 });
 // ServiceType one - many Service
 db.ServiceTypes.hasMany(Service, {
-  foreignKey: 'serviceType_id'
+  foreignKey: 'serviceType_id',
+  onDelete: 'RESTRICT'
 });
 db.Services.belongsTo(ServiceType, {
   foreignKey: 'serviceType_id'
 });
 // ServiceInvoice one - many Service
 db.ServiceInvoices.hasMany(Service, {
-  foreignKey: 'serviceInvoice_id'
+  foreignKey: 'serviceInvoice_id',
+  onDelete: 'CASCADE'
 });
 db.Services.belongsTo(ServiceInvoice, {
   foreignKey: 'serviceInvoice_id'
@@ -103,7 +109,8 @@ db.Services.belongsTo(ServiceInvoice, {
 // - Customer one - many ServiceInvoice
 db.Customers.hasMany(ServiceInvoice, {
   foreignKey: 'customer_id',
-  as: 'serviceInvoices'
+  as: 'serviceInvoices',
+  onDelete: 'RESTRICT'
 });
 db.ServiceInvoices.belongsTo(Customer, {
   foreignKey: 'customer_id'
@@ -111,7 +118,8 @@ db.ServiceInvoices.belongsTo(Customer, {
 // Customer one - many SalesInvoice
 db.Customers.hasMany(SalesInvoice, {
   foreignKey: 'customer_id',
-  as: 'salesInvoices'
+  as: 'salesInvoices',
+  onDelete: 'RESTRICT'
 });
 db.SalesInvoices.belongsTo(Customer, {
   foreignKey: 'customer_id'
@@ -119,7 +127,8 @@ db.SalesInvoices.belongsTo(Customer, {
 // SalesInvoice one - many ProductOnSale
 db.SalesInvoices.hasMany(ProductOnSale, {
   foreignKey: 'salesInvoice_id',
-  as: 'productOnSales'
+  as: 'productOnSales',
+  onDelete: 'CASCADE'
 });
 db.ProductOnSales.belongsTo(SalesInvoice, {
   foreignKey: 'salesInvoice_id'

@@ -61,7 +61,7 @@ const RecieptList = () => {
                 <ReferenceField label="Nhà cung cấp" source="supplier_id" reference="supplier">
                     <TextField source="name" />
                 </ReferenceField>
-                <TextField label="Số lượng nhập" source="Products.lenght" />
+                
                 
                 <EditButton label='Chỉnh sửa' />
 

@@ -62,9 +62,9 @@ async function createProductOnSales(idSaleInvoice, idd, countt) {
 exports.create = (req, res) => {
   // Validate request
   const body = req.body;
-  if (!body.customer_id || !body.products) {
+  if (!body.customer_id) {
     res.status(400).send({
-      message: 'Content customer_id || products[] can not be empty!'
+      message: 'Content customer_id can not be empty!'
     });
     return;
   }
@@ -80,9 +80,12 @@ exports.create = (req, res) => {
   SalesInvoices.create(salesInvoice)
     .then(async (salesInvoice) => {
       // create products on sale
-      for (const product of body.products) {
-        await createProductOnSales(salesInvoice.id, product.id, product.count);
+      if (body.products != null) {
+        for (const product of body.products) {
+          await createProductOnSales(salesInvoice.id, product.id, product.count);
+        }
       }
+
       const result = await SalesInvoices.findByPk(salesInvoice.id, { include: ['productOnSales'] });
 
       res.send(result);
@@ -175,6 +178,29 @@ exports.delete = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: 'Could not delete SalesInvoice with id=' + id
+      });
+    });
+};
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  SalesInvoices.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'SalesInvoices was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete SalesInvoices with ids=${ids}. Maybe SalesInvoices was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: 'Could not delete SalesInvoices with id=' + ids
       });
     });
 };

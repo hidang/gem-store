@@ -28,12 +28,12 @@ export const ProductEditDetails = () => (
         <SelectInput label="Loại sản phẩm" optionText="name" validate={req} fullWidth />
       </ReferenceInput>
     </Grid>
-    <Grid item xs={12} sm={8}>
+    {/* <Grid item xs={12} sm={8}>
       <ReferenceInput source="supplier_id" reference="supplier">
         <SelectInput label="Nhà cung cấp" optionText="name"  fullWidth />
-        {/* <SelectInput parse={value => value === 'not defined' ? undefined : null} /> */}
+        {/* <SelectInput parse={value => value === 'not defined' ? undefined : null} /> 
       </ReferenceInput>
-    </Grid>
+    </Grid> */}
 
     <Grid item xs={12} sm={8}>
 
@@ -41,7 +41,7 @@ export const ProductEditDetails = () => (
     </Grid>
     <Grid item xs={12} sm={8}>
 
-      <NumberInput label="Dơn giá mua" source="pricePerProduct" validate={req} fullWidth min={0} />
+      <NumberInput label="Đơn giá mua" source="pricePerProduct" validate={req} fullWidth min={0} />
     </Grid>
 
 

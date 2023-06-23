@@ -119,3 +119,26 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.deleteByIds = (req, res) => {
+  const ids = JSON.parse(req.query?.filter ?? '{}').id ?? [];
+  ServiceInvoices.destroy({
+    where: { id: ids }
+  })
+    .then((num) => {
+      if (num) {
+        res.send({
+          message: 'ServiceInvoices was deleted successfully! ' + num
+        });
+      } else {
+        res.send({
+          message: `Cannot delete ServiceInvoices with ids=${ids}. Maybe ServiceInvoices was not found!`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: 'Could not delete ServiceInvoices with id=' + ids
+      });
+    });
+};

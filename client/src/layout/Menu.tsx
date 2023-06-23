@@ -103,6 +103,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                     leftIcon={<sales.icon />}
                     dense={dense}
                 />
+                  
                 <MenuItemLink
                     to="/product_in_stock"
                     state={{ _scrollToTop: true }}
