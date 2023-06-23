@@ -10,7 +10,6 @@ import {
   TextInput,
   BooleanInput,
   DateInput,
-  FormDataConsumer  
 } from "react-admin";
 import { InputAdornment, Grid } from "@mui/material";
 
@@ -22,11 +21,7 @@ const convertStringToNumber = (value: any) => {
 export const ServiceListEditDetails = () => (
   <Grid container columnSpacing={2}>
     <Grid item xs={12} sm={8}>
-    <FormDataConsumer>
-      {({ formData }) => (
-        <input type="hidden" name="name" value={formData.name || ''} />
-      )}
-</FormDataConsumer>
+    <TextInput source="name" defaultValue="123" validate={req} style={{ display: 'none' }}/>
       <ReferenceInput source="serviceInvoice_id" reference="customer">
         <SelectInput label="Khách hàng" optionText="name" validate={req} fullWidth />
       </ReferenceInput>
