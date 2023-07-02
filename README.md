@@ -1,11 +1,16 @@
-# NP-CNPM
+# SE104.N26.CLC - Nhập môn Công nghệ phần mềm
 
-#### Introduce
+## Guideline
 
 - `yarn start` to install project and start server, client
 - `yarn dev` to start server and client
-- `yarn format` before commit code
+
+## Members
+
+- [19521314] Đỗ Khánh Đăng
+- [9520587] Bùi Quang Huy
+- [19521341] Nguyễn Thế Đạt
 
 ## Tech-stack:
 
-Node, Express, Vite, React, tailwindcss, twin.macro and styled-components
+Node, Express, sequelize, Vite, React, React-admin
