@@ -1,0 +1,244 @@
+{
+    "productTypes":[
+       { 
+            "id": 0,
+            "Product type": "Vàng",
+            "Product type code": 141234,
+            "Unit_id": "Gam",
+            "profit percentage": "6%"
+        },
+        { 
+            "id": 1,
+            "Product type": "Nhẫn",
+            "Product type code": 1413,
+            "Unit": "Cái",
+            "profit percentage": "2%"
+        },
+        { 
+            "id": 2,
+            "Product type": "Dây chuyền",
+            "Product type code": 12413,
+            "Unit": "Chiếc",
+            "profit percentage": "4%"
+        }
+    ],
+    "units":[
+        { 
+             "id": 0,
+             "Unit": "Cái",
+             "Unit code": 141234
+            
+         },
+         { 
+            "id": 1,
+            "Unit": "Kara",
+            "Unit code": 142234
+         },
+         { 
+            "id": 2,
+            "Unit": "Lượng",
+            "Unit code": 144
+         },
+         { 
+            "id": 3,
+            "Unit": "Phân",
+            "Unit code": 1442
+         }
+     ],
+    "products": [
+        {
+            "id": 0,
+            "Product name": "Vàng scj",
+            "Product type": "Vàng",
+            "Product code": 141234,
+            "Supplier code": 123,
+            "Unit": "gam",
+            "Quantity": 4,
+            "Price": "10$"
+        },
+        {
+            "id": 1,
+            "Product name": "Vàng scj super vip",
+            "Product type": "Vàng",
+            "Product code": 141234,
+            "Supplier code": 123,
+            "Unit": "gam",
+            "Quantity": 10,
+            "Price": "16$"
+        },
+        {
+            "id": 2,
+            "Product name": "nhẫn kim cương",
+            "Product type": "nhẫn",
+            "Product code": 1412334,
+            "Supplier code": 1223,
+            "Unit": "kara",
+            "Quantity": 1,
+            "Price": "146$"
+        },
+        {
+            "id": 3,
+            "Product name": "Vòng cổ hạt",
+            "Product type": "vòng cổ",
+            "Product code": 323,
+            "Supplier code": 423,
+            "Unit": "cái",
+            "Quantity": 3,
+            "Price": "1236$"
+        }
+    ],
+    "suppliers": [
+        {
+            "id": 0,
+            "Supplier name": "Công ty Sen Vàng",
+            "Supplier code": 1233,
+            "address": "Thạch Thất, Hà Giang",
+            "Phone": "0982188282"
+        },
+        {
+            "id": 1,
+            "Supplier name": "công ty Jequery",
+            "Supplier code": 1323,
+            "address": "Quang Trung, Nguyễn Huệ",
+            "Phone": "0982188282"
+        }, {
+            "id": 2,
+            "Supplier name": "công ty thong tin",
+            "Supplier code": 1323,
+            "address": "Quang Trung, Nguyễn Huệ",
+            "Phone": "0982188282"
+        }
+    ],
+    "service": [
+        {
+            "id": 0,
+            "Service name": "Kiểm định Vàng",
+            "Service code": 141234,
+            "Service price": "15$"
+        },
+        {
+            "id": 1,
+            "Service name": "Kiểm định Vàng thật giả",
+            "Service code": 141234,
+            "Service price": "10$"
+        }
+    ],
+    "service_bill": [
+        {
+            "id": 0,
+            "Service name": "Kiểm định Vàng",
+            "Service bill code": 141234,
+            "client Name": "Huy Bui",
+            "phone": "0982812092",
+            "total price": "10$",
+            "prepayment amount": "5$",
+            "remaining amount": "5$",
+            "Quantity": 2,
+            "invoice date": "10/10/2021",
+            "delivery date": "10/10/2022",
+            "status": "Đã giao"
+        },
+        {
+            "id": 1,
+            "Service name": "Kiểm định Vàng thật giả",
+            "Service bill code": 141234,
+            "client Name": "Huy Bui",
+            "phone": "0982812092",
+            "total price": "10$",
+            "prepayment amount": "5$",
+            "remaining amount": "5$",
+            "Quantity": 2,
+            "invoice date": "10/10/2021",
+            "delivery date": "10/10/2022",
+            "status": "Chưa giao"
+        }
+    ],
+    "inventory": [
+        {
+            "id": 0,
+            "inventory code": "23",
+            "Product name": "Vàng scj",
+            "Quantity": 3
+        },
+        {
+            "id": 1,
+            "inventory code": "23",
+            "Product name": "Vàng scj",
+            "Quantity": 3
+        }
+    ],
+    "reciepts": [
+        {
+            "id": 0,
+            "Reciept code": 23,
+            "Date": "2012-02-21",
+            "supplier_id": "1",
+            "supplier name": "công ty Jequery",
+            "Products": 2,
+            "Product":[
+                {
+                    "id": 0,
+                    "Product name": "Vàng scj",
+                    "productType_id": "nhẫn",
+                    "Product code": 1412334,
+                    "Quantity": 10,
+                    "Unit": "cái",
+                    "Price": "13$",
+                    "Total Price":"130$"   
+                    
+                },
+                {
+                    "id": 1,
+                    "Product name": "Vàng scj",
+                    "Product type": "nhẫn",
+                    "Product code": 14134,
+                    "Quantity": 10,
+                    "Unit": "cái",
+                    "Price": "13$",
+                    "Total Price":"130$"   
+                    
+                }
+                
+            ]
+        }       
+    ],
+    "bill_of_sale": [
+        {
+            "id": 0,
+            "sale code": 23,
+            "Product name": "Vàng scj",
+            "Quantity": 10,
+            "Price": "130$",
+            "Date": "2004-03-21"
+        },
+        {
+            "id": 1,
+            "sale code": 23,
+            "Product name": "Vàng scj",
+            "Quantity": 10,
+            "Price": "130$",
+            "Date": "2004-03-21"
+        }
+    ],
+    "clients": [
+        {
+            "id": 0,
+            "Client code": 130,
+            "Name": "Bùi Quang Huy",
+            "Phone": "0982188282",
+            "Date of Birth": "2004-03-21",
+            "address": "Thanh xuân, hà nội",
+            "Sex": "Nam"
+        },
+        {
+            "id": 1,
+            "Client code": 1230,
+            "Name": "Nguyễn Lan Anh",
+            "Phone": "098218342",
+            "Date of Birth": "2007-03-20",
+            "address": "Quận 5, Hồ Chí Minh",
+            "Sex": "Nữ"
+        }
+    ]
+  
+}
